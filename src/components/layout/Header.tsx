@@ -1,9 +1,13 @@
-import React from 'react'
+"use client";
+
+import { usePathname } from "next/navigation";
 
 const Header = () => {
-  return (
-    <div>Header</div>
-  )
-}
+  const pathname = usePathname();
+  const atAdmin = pathname.includes("admin");
+  if (atAdmin) return;
 
-export default Header
+  return <div>Header</div>;
+};
+
+export default Header;

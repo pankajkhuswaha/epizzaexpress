@@ -1,8 +1,9 @@
+import { verifyJwtToken } from "@/configs/jwt";
+import User from "@/models/user.model";
 import { JwtPayload } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { verifyJwtToken } from "../../../_configs/jwt";
-import User from "../../../_models/user.model";
+
 
 export const GET = async () => {
   try {

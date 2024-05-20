@@ -1,6 +1,7 @@
+import Blog from "@/models/blog.model";
+import { slugify } from "@/utils/slugify";
 import { NextRequest, NextResponse } from "next/server";
-import Blog from "../../_models/blog.model";
-import { slugify } from "../../../../../utils";
+;
 export const GET = async () => {
   const blogs = await Blog.find();
   return NextResponse.json(blogs);

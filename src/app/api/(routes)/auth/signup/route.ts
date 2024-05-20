@@ -1,7 +1,8 @@
+import dbconnect from "@/configs/dbconnect";
+import User from "@/models/user.model";
+import { hashPassword } from "@/utils";
 import { NextRequest, NextResponse } from "next/server";
-import { hashPassword } from "../../../_utils";
-import User from "../../../_models/user.model";
-import dbconnect from "../../../_configs/dbconnect";
+
 
 dbconnect();
 

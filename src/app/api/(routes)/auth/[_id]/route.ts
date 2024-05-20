@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import User from "../../../_models/user.model";
 import { Params } from "@/types";
+import User from "@/models/user.model";
 
 export const GET = async (_req: NextRequest, { params }: Params) => {
   const _id = params._id;

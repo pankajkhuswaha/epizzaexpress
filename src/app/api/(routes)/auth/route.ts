@@ -1,5 +1,5 @@
+import User from "@/models/user.model";
 import { NextResponse } from "next/server";
-import User from "../../_models/user.model";
 
 export async function GET() {
   const users = await User.find();

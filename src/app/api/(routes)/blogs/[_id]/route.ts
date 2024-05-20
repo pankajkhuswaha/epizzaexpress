@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import Blog from "../../../_models/blog.model";
 import { Params } from "@/types";
+import Blog from "@/models/blog.model";
 
 export const GET = async (_req: NextRequest, { params }: Params) => {
   const slug = params._id;

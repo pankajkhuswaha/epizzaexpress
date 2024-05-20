@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import Product from "../../_models/product.model";
-import { slugify } from "../../../../../utils";
+import Product from "@/models/product.model";
+import { slugify } from "@/utils/slugify";
 
 export const GET = async () => {
   const products = await Product.find();

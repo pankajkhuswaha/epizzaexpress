@@ -1,9 +1,10 @@
+import dbconnect from "@/configs/dbconnect";
+import { createJwtToken } from "@/configs/jwt";
+import User from "@/models/user.model";
 import bcrypt from "bcrypt";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { createJwtToken } from "../../../_configs/jwt";
-import User from "../../../_models/user.model";
-import dbconnect from "../../../_configs/dbconnect";
+
 
 dbconnect();
 export async function POST(request: NextRequest) {

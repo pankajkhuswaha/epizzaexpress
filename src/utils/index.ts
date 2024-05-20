@@ -1,4 +1,4 @@
-import bcrypt  from 'bcrypt';
+import bcrypt from "bcrypt";
 
 /**
  * hashPassword function is used to convert plain password into hased password

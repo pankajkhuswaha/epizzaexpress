@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import Product from "../../../_models/product.model";
 import { Params } from "@/types";
+import Product from "@/models/product.model";
 
 export const GET = async (_req: NextRequest, { params }: Params) => {
   const slug = params._id;

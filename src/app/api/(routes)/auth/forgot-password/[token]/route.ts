@@ -1,6 +1,6 @@
-import dbconnect from "@/app/api/_configs/dbconnect";
-import User from "@/app/api/_models/user.model";
-import { hashPassword } from "@/app/api/_utils";
+import dbconnect from "@/configs/dbconnect";
+import User from "@/models/user.model";
+import { hashPassword } from "@/utils";
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "node:crypto";
 
@@ -49,7 +49,7 @@ export const POST = async (
       { status: 400 }
     );
   }
-  const newHassedPassword = await hashPassword(password)
+  const newHassedPassword = await hashPassword(password);
   user.password = newHassedPassword;
   user.passwordResetToken = undefined;
   user.passwordResetExpire = undefined;

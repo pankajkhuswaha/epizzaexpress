@@ -1,9 +1,10 @@
+import sendEmail from "@/actions/sendEmail";
+import dbconnect from "@/configs/dbconnect";
+import { resetPasswordMail } from "@/emails/forgot-password";
+import User from "@/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "node:crypto";
-import { resetPasswordMail } from "../../../_emails/forgot-password";
-import User from "../../../_models/user.model";
-import sendEmail from "../../../_utils/sendEmail";
-import dbconnect from "../../../_configs/dbconnect";
+
 
 dbconnect();
 export const POST = async (req: NextRequest) => {

@@ -1,34 +1,46 @@
-import { HelpCircle, ListOrderedIcon, NetworkIcon, UserIcon } from "lucide-react";
+"use client";
+import fetchApi from "@/utils/axios";
+import { useQuery } from "@tanstack/react-query";
+import {
+  HelpCircle,
+  ListOrderedIcon,
+  NetworkIcon,
+  UserIcon,
+} from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 const AdminDashboard = () => {
+  const { data: stats } = useQuery({
+    queryKey: ["fetch-admin-data"],
+    queryFn: () => fetchApi<Record<string, number>>("GET", "/api/admin"),
+  });
+  console.log(stats);
   const cards = [
     {
       name: "Registered Users",
-      count: 10,
+      count: stats?.users || 0,
       icon: <UserIcon />,
       path: "/admin/users",
     },
     {
       name: "Conatct Us Req.",
-      count: 10,
+      count: stats?.contactreqs || 0,
       icon: <HelpCircle />,
       path: "/admin/contact-reqs",
     },
     {
       name: "Blogs",
-      count: 10,
+      count: stats?.blogs || 0,
       icon: <NetworkIcon />,
       path: "/admin/blogs",
     },
     {
       name: "Products",
-      count: 10,
+      count: stats?.products || 0,
       icon: <ListOrderedIcon />,
       path: "/admin/products",
     },
-
   ];
   return (
     <>

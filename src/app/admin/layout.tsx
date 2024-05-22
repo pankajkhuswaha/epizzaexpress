@@ -6,13 +6,13 @@ import { useState } from "react";
 
 const AdminLayout = ({ children }: ChildrenProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white transition-colors duration-300">
       <Navbar toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
-      <div className="flex gap-4 min-h-[calc(100vh-4rem)] relative">
+      <div className="flex min-h-[calc(100vh-4rem)] relative">
         <Sidebar isOpen={isSidebarOpen} />
-        <main className="container mx-auto p-2 md:p-4">{children}</main>
+        <main className="container mx-auto p-2">{children}</main>
       </div>
     </div>
   );

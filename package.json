@@ -1,5 +1,6 @@
 {
-  "name": "e-pizza-express",
+  "name": "next-app",
+  "author": "Pankaj khuswaha",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +12,9 @@
   "dependencies": {
     "@tanstack/react-query": "^5.37.1",
     "@tanstack/react-query-devtools": "^5.37.1",
+    "ag-grid-community": "^31.3.2",
+    "ag-grid-react": "^31.3.2",
+    "axios": "^1.7.1",
     "bcrypt": "^5.1.1",
     "crypto": "^1.0.1",
     "jsonwebtoken": "^9.0.2",

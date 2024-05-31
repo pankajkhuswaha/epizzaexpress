@@ -20,7 +20,7 @@ export default function RootLayout({ children }: Readonly<ChildrenProps>) {
       <body className={inter.className}>
         <Providers>
           <Header />
-          {children}
+          <main>{children}</main>
           <Footer />
         </Providers>
         <Script

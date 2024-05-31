@@ -10434,7 +10434,7 @@ button.bg-dark:hover {
     color: #fff !important
 }
 
-.text-primary {
+/* .text-primary {
     color: #007bff !important
 }
 
@@ -10450,7 +10450,7 @@ a.text-primary:hover {
 a.text-secondary:focus,
 a.text-secondary:hover {
     color: #494f54 !important
-}
+} */
 
 .text-success {
     color: #28a745 !important

@@ -26,7 +26,7 @@ const Header = () => {
     },
     {
       name: "Blog",
-      path: "/blog",
+      path: "/blogs",
     },
     {
       name: "Contact",
@@ -41,8 +41,9 @@ const Header = () => {
           <Link href="/" className="block">
             <Image
               src="/img/logo/logo.png"
-              width={100}
-              height={80}
+              className="w-[200px] h-[80px] object-contain"
+              width={300}
+              height={100}
               alt="logo"
             />
           </Link>
@@ -77,7 +78,7 @@ const Header = () => {
         </div>
 
         <div
-          className={`main-menu overflow-hidden lg:hidden z-50 w-full transition-all duration-150 ${
+          className={`main-menu overflow-hidden lg:hidden z-50 w-full transition-all duration-300 ${
             !toggle ? "h-0 " : "h-[260px]"
           } text-right pr-15 bg-secondary`}
         >

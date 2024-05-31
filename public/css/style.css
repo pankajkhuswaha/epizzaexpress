@@ -490,9 +490,9 @@ label {
     display: block;
 }
 
-.menu-area {
+/* .menu-area {
     margin-top: 50px;
-}
+} */
 
 .menu-area .container {
     max-width: 1550px;
@@ -6014,9 +6014,9 @@ pre cite {
 
 /* Here's the new CSS to add... */
 
-.admin-bar .menu-area {
+/* .admin-bar .menu-area {
     margin-top: 15px;
-}
+} */
 
 .admin-bar .second-header {
     margin-bottom: -70px;

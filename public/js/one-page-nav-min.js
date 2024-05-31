@@ -77,7 +77,7 @@
             null !== n && (t = this.$elem.find('a[href$="#' + n + '"]').parent(), t.hasClass(this.config.currentClass) || (this.adjustNav(this, t), this.config.scrollChange && this.config.scrollChange(t)))
         },
         scrollTo: function(i, n) {
-            var s = t(i).offset().top;
+            var s = t(i).offset()?.top;
             t("html, body").animate({
                 scrollTop: s - this.config.scrollOffset
             }, this.config.scrollSpeed, this.config.easing, n)

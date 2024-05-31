@@ -7073,9 +7073,9 @@ button.bg-primary:hover {
     background-color: #0062cc !important
 }
 
-.bg-secondary {
+/* .bg-secondary {
     background-color: #6c757d !important
-}
+} */
 
 a.bg-secondary:focus,
 a.bg-secondary:hover,
@@ -7198,9 +7198,9 @@ button.bg-dark:hover {
     border-left: 0 !important
 }
 
-.border-primary {
+/* .border-primary {
     border-color: #007bff !important
-}
+} */
 
 .border-secondary {
     border-color: #6c757d !important

@@ -1,9 +1,12 @@
+import BreadCrumb from '@/components/BreadCrumb';
 import React from 'react'
 
 const Blogs = () => {
   return (
-    <div>Blogs</div>
-  )
+    <section id="conatct">
+      <BreadCrumb name="Blogs" path="blogs" />
+    </section>
+  );
 }
 
 export default Blogs

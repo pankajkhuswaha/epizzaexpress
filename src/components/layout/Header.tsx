@@ -36,12 +36,12 @@ const Header = () => {
 
   return (
     <header className="header-area">
-      <div id="header-sticky" className="menu-area z-[9999]">
+      <div id="header-sticky" className="menu-area z-[9999] p-0">
         <div className="container flex justify-between items-center p-2">
           <Link href="/" className="block">
             <Image
               src="/img/logo/logo.png"
-              className="w-[200px] h-[80px] object-contain"
+              className="w-[200px] h-[60px] object-contain"
               width={300}
               height={100}
               alt="logo"
@@ -79,12 +79,16 @@ const Header = () => {
 
         <div
           className={`main-menu overflow-hidden lg:hidden z-50 w-full transition-all duration-300 ${
-            !toggle ? "h-0 " : "h-[260px]"
+            !toggle ? "h-0 " : "h-[360px]"
           } text-right pr-15 bg-secondary`}
         >
           <ul>
             {menus.map(({ name, path }, i) => (
-              <li key={i} className="has-sub">
+              <li
+                onClick={() => setToggle(!toggle)}
+                key={i}
+                className="has-sub"
+              >
                 <Link href={path}>{name}</Link>
               </li>
             ))}

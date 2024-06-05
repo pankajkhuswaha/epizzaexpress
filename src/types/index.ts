@@ -13,3 +13,12 @@ export interface UserProp {
   mobile: string;
   image?: string;
 }
+
+export interface BlogProp {
+  slug:string;
+  title:string;
+  category:string;
+  content:string;
+  image:string;
+  createdAt:string,
+}

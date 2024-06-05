@@ -1,4 +1,5 @@
 import BreadCrumb from "@/components/BreadCrumb";
+import Image from "next/image";
 import React from "react";
 
 const ContactUs = () => {
@@ -60,19 +61,21 @@ const ContactUs = () => {
           </div>
           <div className="col-lg-6">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96976.76857206452!2d-122.43277013717234!3d40.574187300475515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54d291d63b4a202f%3A0x1f3358ec7b360f57!2sRedding%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1595490363344!5m2!1sen!2sin"
-              width="100%"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219.4168677378301!2d77.28217954498282!3d28.36882844209638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdea701108b19%3A0xff8907ad8ce7fa!2sGali%20Number%206!5e0!3m2!1sen!2sin!4v1717604192673!5m2!1sen!2sin"
+              width="600"
               height="600"
-              aria-hidden="false"
+              loading="lazy"
             ></iframe>
           </div>
         </div>
         <div className="row">
           <div className="w-full col-lg-12 col-md-12">
-            <img
-              src="img/meal/banner.png"
+            <Image
+              src="/img/banner/offer.png"
               alt="banner"
               className="img mt-100 mx-auto"
+              width={1000}
+              height={200}
             />
           </div>
         </div>

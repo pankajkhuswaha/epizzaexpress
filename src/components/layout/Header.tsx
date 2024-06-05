@@ -25,7 +25,7 @@ const Header = () => {
       path: "/menu",
     },
     {
-      name: "Blog",
+      name: "Blogs",
       path: "/blogs",
     },
     {

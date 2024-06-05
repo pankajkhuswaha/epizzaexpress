@@ -1,6 +1,7 @@
+import { BlogProp } from "@/types";
 import mongoose from "mongoose";
 
-const blogSchema = new mongoose.Schema(
+const blogSchema = new mongoose.Schema<BlogProp>(
   {
     slug: {
       type: String,
@@ -10,6 +11,10 @@ const blogSchema = new mongoose.Schema(
     title: {
       type: String,
       require: true,
+    },
+    category: {
+      type: String,
+      required: true,
     },
     content: {
       type: String,
@@ -24,5 +29,6 @@ const blogSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-const Blog = mongoose.models.blog || mongoose.model("blog", blogSchema);
+const Blog =
+  mongoose.models.blog || mongoose.model<BlogProp>("blog", blogSchema);
 export default Blog;

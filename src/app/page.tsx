@@ -54,8 +54,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="max-md:hidden overly-text absolute top-1/3 lg:top-1/2">FRESH PIZZA</div>
-          
+          <div className="max-md:hidden overly-text absolute top-1/3 lg:top-1/2">
+            FRESH PIZZA
+          </div>
         </div>
       </div>
     </>

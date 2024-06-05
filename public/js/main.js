@@ -421,27 +421,27 @@
     });
 
 
-    // isotop
-    $('.grid').imagesLoaded(function() {
-        // init Isotope
-        var $grid = $('.grid').isotope({
-            itemSelector: '.grid-item',
-            percentPosition: true,
-            masonry: {
-                // use outer width of grid-sizer for columnWidth
-                columnWidth: 1
-            }
-        });
+    // // isotop
+    // $('.grid').imagesLoaded(function() {
+    //     // init Isotope
+    //     var $grid = $('.grid').isotope({
+    //         itemSelector: '.grid-item',
+    //         percentPosition: true,
+    //         masonry: {
+    //             // use outer width of grid-sizer for columnWidth
+    //             columnWidth: 1
+    //         }
+    //     });
 
-        // filter items on button click
-        $('.button-group').on('click', 'button', function() {
-            var filterValue = $(this).attr('data-filter');
-            $grid.isotope({
-                filter: filterValue
-            });
-        });
+    //     // filter items on button click
+    //     $('.button-group').on('click', 'button', function() {
+    //         var filterValue = $(this).attr('data-filter');
+    //         $grid.isotope({
+    //             filter: filterValue
+    //         });
+    //     });
 
-    });
+    // });
     // isotop
     $(".element").each(function() {
             var a = $(this);

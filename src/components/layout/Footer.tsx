@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { usePathname } from "next/navigation";
@@ -20,7 +21,7 @@ const Footer = () => {
               <div className="footer-widget text-center mb-30">
                 <div className="flog mt-50 mb-30">
                   <a href="#">
-                    <img src="img/logo/logo.png" alt="logo" />
+                    <img src="/img/logo/logo.png" alt="logo" />
                   </a>
                 </div>
                 <div className="footer-text mb-20">
@@ -49,7 +50,7 @@ const Footer = () => {
             <div className="col-xl-4 col-lg-4 col-sm-6">
               <div className="footer-widget mb-30 text-center">
                 <div className="f-time-icon">
-                  <img src="img/bg/time-bg.png" alt="logo" />
+                  <img src="/img/bg/time-bg.png" alt="logo" />
                 </div>
                 <div className="f-widget-title mt-100">
                   <span>AVAILABLE</span>
@@ -82,7 +83,7 @@ const Footer = () => {
             <div className="col-xl-4 col-lg-4 col-sm-6">
               <div className="footer-widget mb-30 text-center">
                 <div className="f-contact-icon">
-                  <img src="img/bg/f-contact-icon.png" alt="logo" />
+                  <img src="/img/bg/f-contact-icon.png" alt="logo" />
                 </div>
                 <div className="f-widget-title mt-100">
                   <span>CONTACT</span>

@@ -41,7 +41,7 @@ const Header = () => {
           <Link href="/" className="block">
             <Image
               src="/img/logo/logo.png"
-              className="w-[200px] h-[60px] object-contain"
+              className="w-[220px] h-[60px] object-contain"
               width={300}
               height={100}
               alt="logo"
@@ -79,7 +79,7 @@ const Header = () => {
 
         <div
           className={`main-menu overflow-hidden lg:hidden z-50 w-full transition-all duration-300 ${
-            !toggle ? "h-0 " : "h-[360px]"
+            !toggle ? "h-0 " : "h-[260px]"
           } text-right pr-15 bg-secondary`}
         >
           <ul>

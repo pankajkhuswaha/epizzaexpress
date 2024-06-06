@@ -6,8 +6,16 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode:"class",
+  darkMode: "class",
   theme: {
+    container: {
+      padding: {
+        DEFAULT: "1rem",
+        md: "3rem",
+        lg: "5rem",
+        "2xl":"10rem"
+      },
+    },
     extend: {
       colors: {
         primary: {

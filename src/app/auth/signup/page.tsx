@@ -1,9 +1,11 @@
 "use client";
 import fetchApi from "@/utils/axios";
 import { useMutation } from "@tanstack/react-query";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import GoogleSignup from "./GoogleSignup";
 
 interface SignupDetail {
   name: string;
@@ -98,103 +100,130 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-primary">
-          Sign Up
-        </h2>
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            {errors.name && (
-              <p className="mt-2 text-sm text-red-600">{errors.name}</p>
-            )}
-          </div>
-          <div>
-            <label
-              htmlFor="mobile"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Mobile Number
-            </label>
-            <input
-              type="number"
-              id="mobile"
-              name="mobile"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-              value={formData.mobile}
-              onChange={handleChange}
-              required
-            />
-            {errors.mobile && (
-              <p className="mt-2 text-sm text-red-600">{errors.mobile}</p>
-            )}
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            {errors.email && (
-              <p className="mt-2 text-sm text-red-600">{errors.email}</p>
-            )}
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-            {errors.password && (
-              <p className="mt-2 text-sm text-red-600">{errors.password}</p>
-            )}
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-            >
-              Sign Up
-            </button>
-          </div>
-        </form>
+    <>
+      <div className="w-full p-2 mb-10">
+        <Image
+          src="/img/banner/offer.png"
+          alt="banner"
+          className="img md:h-[200px] md:mx-auto w-full object-contain"
+          width={1000}
+          height={200}
+        />
       </div>
-    </div>
+      <div className="flex items-center justify-center">
+        <div className="bg-gray-900 p-4 md:p-8 rounded-2xl shadow-md w-full max-w-lg mx-2">
+          <center className="">
+            <h2 className="text-2xl font-bold text-primary">Register on</h2>
+            <Image
+              src="/img/logo/logo.png"
+              alt="logo"
+              width={200}
+              height={90}
+            />
+            <p className="text-lg mb-4">to grab latest offer</p>
+          </center>
+
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-400"
+              >
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              {errors.name && (
+                <p className="mt-2 text-sm text-red-600">{errors.name}</p>
+              )}
+            </div>
+            <div>
+              <label
+                htmlFor="mobile"
+                className="block text-sm font-medium text-gray-400"
+              >
+                Mobile Number
+              </label>
+              <input
+                type="number"
+                id="mobile"
+                name="mobile"
+                placeholder="999XXXXXX75"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                value={formData.mobile}
+                onChange={handleChange}
+                required
+              />
+              {errors.mobile && (
+                <p className="mt-2 text-sm text-red-600">{errors.mobile}</p>
+              )}
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-400"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="youremail@gmail.com"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              {errors.email && (
+                <p className="mt-2 text-sm text-red-600">{errors.email}</p>
+              )}
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-400"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="*********"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+
+              {errors.password && (
+                <p className="mt-2 text-sm text-red-600">{errors.password}</p>
+              )}
+            </div>
+            <div>
+              <button type="submit" className="btn w-full">
+                Sign Up
+              </button>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="border-b h-0 overflow-hidden w-full">d</div>
+              Or
+              <div className="border-b h-0 overflow-hidden w-full">d</div>
+            </div>
+          </form>
+          <GoogleSignup />
+        </div>
+      </div>
+    </>
   );
 };
 

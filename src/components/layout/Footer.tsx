@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 const Footer = () => {
   const pathname = usePathname();
@@ -9,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="footer-bg footer-p">
       <div
-        className="footer-top pt-120 pb-200"
+        className="footer-top py-20"
         style={{
           background: "url(/img/bg/footer-bg.png) no-repeat",
           backgroundSize: "cover",
@@ -26,23 +27,21 @@ const Footer = () => {
                 </div>
                 <div className="footer-text mb-20">
                   <p>
-                    Sed ut perspiciatis unde om is nerror sit voluptatem
-                    accustium dolorem tium totam rem aperam eaque ipsa quae ab
-                    illose inntore veritatis
+                    At EPizzaExpress, we bring the joy of gourmet pizza right to
+                    your doorstep. Our pizzas are crafted with the freshest
+                    ingredients, hand-tossed dough, and authentic recipes,
+                    ensuring every bite is a delightful experience.
                   </p>
                 </div>
-                <div className="footer-social mt-30">
+                <div className="footer-social mt-30 flex items-center gap-4 justify-center">
                   <a href="#">
-                    <i className="fab fa-facebook-f"></i>
+                    <FaFacebook />
                   </a>
                   <a href="#">
-                    <i className="fab fa-twitter"></i>
+                    <FaXTwitter />
                   </a>
                   <a href="#">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href="#">
-                    <i className="fab fa-google-plus-g"></i>
+                    <FaInstagram />
                   </a>
                 </div>
               </div>
@@ -91,8 +90,15 @@ const Footer = () => {
                 </div>
                 <div className="footer-link">
                   <div className="f-contact">
-                    <p>12/7Aabot, Poor Street, New York United States</p>
-                    <a href="#" className="btn ss-btn mt-20">
+                    <p>
+                      60 Feet Road , Shop No 6 ,Nagla chowk , Jawahar colony
+                      Faridabad
+                    </p>
+                    <a
+                      href="https://maps.app.goo.gl/7VPn1SnLB8JNRqUc8"
+                      target="_blank"
+                      className="btn ss-btn mt-20"
+                    >
                       GET DIRECTIONS
                     </a>
                   </div>

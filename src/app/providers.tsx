@@ -7,6 +7,10 @@ import "react-toastify/dist/ReactToastify.css";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import "sweetalert2/src/sweetalert2.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ScrollToTop from "@/components/ScrollToTop";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -19,6 +23,7 @@ const Providers = ({ children }: ChildrenProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ToastContainer />
+      <ScrollToTop/>
 
       <ReactQueryDevtools initialIsOpen={false} />
       {children}

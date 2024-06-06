@@ -2634,7 +2634,6 @@ section:hover .section-title h2::before {
   border-radius: 10px;
   width: 90%;
   float: right;
-  padding: 50px 40px 25px;
   margin: 20px 20px 30px;
   color: #cacaca;
   margin-top: 50px;
@@ -4341,12 +4340,14 @@ div.single-cta:last-child {
 }
 
 .footer-social a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 60px;
   width: 60px;
   font-size: 24px;
   color: #ffce1c;
   margin-right: 15px;
-  display: inline-block;
   line-height: 55px;
   border-radius: 50%;
   text-align: center;

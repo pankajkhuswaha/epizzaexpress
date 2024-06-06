@@ -1,64 +1,26 @@
 import BreadCrumb from '@/components/BreadCrumb';
-import React from 'react'
+import About from "./About";
+import Testimonials from "./Testimonials";
+import IntroVideo from "./IntroVideo";
+import { Metadata } from "next";
 
-const About = () => {
+export const metadata: Metadata = {
+  title: "About E Pizza Express | Best Pizza Restaurant in Faridabad",
+  description:
+    "Learn more about E Pizza Express, the best pizza restaurant in Faridabad. Our story, mission, and commitment to delivering delicious, freshly made pizzas. Discover why our customers love us and what makes our pizzas special. Join us for an unforgettable dining experience.",
+  keywords:
+    "About E Pizza Express, Best pizza restaurant Faridabad, Our story E Pizza Express, Pizza restaurant mission, About us E Pizza Express, Why choose E Pizza Express, Pizza place history Faridabad, E Pizza Express values, Pizza restaurant information",
+};
+
+const AboutUs = () => {
   return (
-    <section id="about" className="about-area about-p pb-80 p-relative">
-      <BreadCrumb name='About Us' path='about'/>
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-5 col-md-12 col-sm-12">
-            <div className="s-about-img p-relative">
-              <img src="/img/about/about.png" alt="img" />
-            </div>
-          </div>
-          <div className="col-lg-7 col-md-12 col-sm-12">
-            <div className="about-content s-about-content pl-30">
-              <div className="title-about">
-                <div className="section-title mb-20">
-                  <span>ABOUT US</span>
-                  <h2>LOCATED IN A SMALL TOWN</h2>
-                  <p>Made of fresh & premium ingredients</p>
-                </div>
-                <div className="year mb-20">
-                  <div className="text">
-                    <h2>
-                      25 <sub>+</sub>
-                    </h2>
-                    <p>YEARS OF EXPERIENCE</p>
-                  </div>
-                </div>
-              </div>
-              <div className="about-text mb-15">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                </p>
-              </div>
-              <div className="about-text">
-                <div className="avatar">
-                  <img src="/img/about/avatar.png" alt="avatar" />
-                  <div className="text">
-                    <h4>Jemi D. William</h4>
-                    <span>FOUNDER</span>
-                  </div>
-                </div>
-                <div>
-                  <img src="/img/about/signature.png" alt="signature" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section id="about" className="about-area about-p p-relative">
+      <BreadCrumb name="About Us" path="about" />
+      <About />
+      <Testimonials />
+      <IntroVideo />
     </section>
   );
-}
+};
 
-export default About
+export default AboutUs;

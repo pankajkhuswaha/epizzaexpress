@@ -13,6 +13,7 @@ interface LoginDetails {
 interface SignupDetail extends LoginDetails {
   name: string;
   mobile: string;
+  emailverified?:boolean
 }
 
 export interface UserDetails extends SignupDetail {

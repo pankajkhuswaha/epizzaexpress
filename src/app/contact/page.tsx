@@ -1,6 +1,15 @@
 import BreadCrumb from "@/components/BreadCrumb";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "E Pizza Express | Reach Out to Us",
+  description:
+    "Get in touch with E Pizza Express in Faridabad. Whether you have a question, feedback, or need assistance, we are here to help. Contact us via phone, email, or visit our restaurant. We look forward to hearing from you!",
+  keywords:
+    "E Pizza Express contact, Contact pizza restaurant Faridabad, Get in touch E Pizza Express, Pizza restaurant contact details, Contact us Faridabad, E Pizza Express phone, E Pizza Express email, Visit E Pizza Express, Customer service Faridabad",
+};
 
 const ContactUs = () => {
   return (

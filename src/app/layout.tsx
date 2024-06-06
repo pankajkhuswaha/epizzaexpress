@@ -42,43 +42,11 @@ export default function RootLayout({ children }: Readonly<ChildrenProps>) {
           <Footer />
         </Providers>
         <Script
-          src="/js/vendor/modernizr-3.5.0.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script
           src="/js/vendor/jquery-1.12.4.min.js"
           strategy="beforeInteractive"
         />
-        <Script src="/js/popper.min.js" strategy="beforeInteractive" />
         <Script src="/js/bootstrap.min.js" strategy="beforeInteractive" />
         <Script src="/js/one-page-nav-min.js" strategy="beforeInteractive" />
-        <Script src="/js/jquery.meanmenu.min.js" strategy="beforeInteractive" />
-        <Script src="/js/slick.min.js" strategy="beforeInteractive" />
-        <Script src="/js/ajax-form.js" strategy="beforeInteractive" />
-        <Script src="/js/paroller.js" strategy="beforeInteractive" />
-        <Script src="/js/wow.min.js" strategy="beforeInteractive" />
-        <Script src="/js/js_isotope.pkgd.min.js" strategy="beforeInteractive" />
-        <Script src="/js/imagesloaded.min.js" strategy="beforeInteractive" />
-        <Script src="/js/parallax.min.js" strategy="beforeInteractive" />
-        <Script
-          src="/js/jquery.waypoints.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script
-          src="/js/jquery.counterup.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script src="/js/parallax-scroll.js" strategy="beforeInteractive" />
-        <Script
-          src="/js/jquery.magnific-popup.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script src="/js/element-in-view.js" strategy="beforeInteractive" />
-        <Script src="/js/jquery.nice-select.js" strategy="beforeInteractive" />
-        <Script
-          src="/js/bootstrap-datepicker.min.js"
-          strategy="beforeInteractive"
-        />
         <Script src="/js/main.js" strategy="beforeInteractive" />
       </body>
     </html>

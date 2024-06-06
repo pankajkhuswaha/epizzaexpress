@@ -1243,7 +1243,6 @@ label {
 }
 
 .year .text::before {
-  background: url(../img/about/y-bg.png);
   position: absolute;
   content: "";
   width: 85px;

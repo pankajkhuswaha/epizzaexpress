@@ -11,10 +11,7 @@ const Footer = () => {
     <footer className="footer-bg footer-p">
       <div
         className="footer-top py-20"
-        style={{
-          background: "url(/img/bg/footer-bg.png) no-repeat",
-          backgroundSize: "cover",
-        }}
+        
       >
         <div className="container">
           <div className="row align-items-center">
@@ -108,6 +105,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <center className="border-t py-2">
+        copyright {new Date().getFullYear()} © Epizzaexpress | Design and developed by MSP
+        Webcraft
+      </center>
     </footer>
   );
 };

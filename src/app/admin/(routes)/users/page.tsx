@@ -13,11 +13,11 @@ const UserList = () => {
   });
   const columns: ColDef[] = [
     {
-      headerName:"Sr. No",
-      field:"index",
-      cellRenderer:(data:any)=>{
-        return data.column.instanceId + 1;
-      }
+      headerName: "Sr. No",
+      field: "index",
+      cellRenderer: (data: any) => {
+        return data.rowIndex + 1;
+      },
     },
     {
       headerName: "Full Name",
@@ -36,13 +36,13 @@ const UserList = () => {
       field: "role",
     },
     {
-      headerName:"Action",
-      field:"_id"
-    }
+      headerName: "Action",
+      field: "_id",
+    },
   ];
   return (
     <div
-      className="ag-theme-quartz" // applying the grid theme
+      className="ag-theme-quartz-auto-dark" // applying the grid theme
       style={{ height: 500 }} // the grid will fill the size of the parent container
     >
       <AgGridReact rowData={users} columnDefs={columns} />

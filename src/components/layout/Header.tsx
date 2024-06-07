@@ -35,7 +35,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="header-area">
+    <header className="header-area z-[99999]" style={{position:"inherit"}}>
       <div id="header-sticky" className="menu-area z-[9999] p-0">
         <div className="container flex justify-between items-center p-2">
           <Link href="/" className="block">

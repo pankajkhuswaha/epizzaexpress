@@ -259,7 +259,6 @@ label {
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
-  z-index: 999;
 }
 
 .btn:hover {

@@ -12,6 +12,10 @@ const blogSchema = new mongoose.Schema<BlogProp>(
       type: String,
       require: true,
     },
+    paragraph:{
+      type:String,
+      require:true
+    },
     category: {
       type: String,
       required: true,
@@ -24,6 +28,10 @@ const blogSchema = new mongoose.Schema<BlogProp>(
       type: String,
       required: true,
     },
+    author:{
+      type:mongoose.Types.ObjectId,
+      ref:"user"
+    }
   },
   {
     timestamps: true,

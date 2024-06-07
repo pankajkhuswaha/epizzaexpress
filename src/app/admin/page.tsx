@@ -15,7 +15,6 @@ const AdminDashboard = () => {
     queryKey: ["fetch-admin-data"],
     queryFn: () => fetchApi<Record<string, number>>("GET", "/api/admin"),
   });
-  console.log(stats);
   const cards = [
     {
       name: "Registered Users",
@@ -44,7 +43,7 @@ const AdminDashboard = () => {
   ];
   return (
     <>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         {cards.map(({ name, count, icon, path }, i) => {
           return (
             <Link
@@ -56,7 +55,7 @@ const AdminDashboard = () => {
                 <p className="font-semibold text-gray-600 dark:text-gray-300 mb-2">
                   {name}
                 </p>
-                <h1 className="text-2xl md:text-4xl text-primary">{count}</h1>
+                <h1 className="text-2xl md:text-4xl text-primary tracking-widest">{count}</h1>
               </div>
               <p className="border-2 border-gray-300 dark:border-gray-400 rounded-full size-10 flex items-center justify-center text-4xl text-primary mt-4">
                 {icon}

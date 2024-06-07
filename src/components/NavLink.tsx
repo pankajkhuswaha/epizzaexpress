@@ -8,13 +8,23 @@ interface NavlinkProps {
   href: string;
   className?: string;
   activeClassName?: string;
+  defaultClassName?: string;
 }
 
 const NavLink = (props: NavlinkProps) => {
-  const { href, className, activeClassName, children, ...rest } = props;
+  const {
+    href,
+    className,
+    defaultClassName,
+    activeClassName,
+    children,
+    ...rest
+  } = props;
   const pathname = usePathname();
   const isActive = pathname == href && pathname.includes(href);
-  const newClassName = isActive ? `${className} ${activeClassName}` : className;
+  const newClassName = `${className} ${
+    isActive ? activeClassName : defaultClassName
+  }`;
 
   return (
     <Link href={href} className={newClassName} {...rest}>

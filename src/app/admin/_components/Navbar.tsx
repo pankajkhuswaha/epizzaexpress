@@ -1,5 +1,5 @@
-import DarkMode from "@/components/DarkMode";
 import { LogOutIcon, MenuIcon } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
   return (
@@ -9,11 +9,11 @@ const Navbar = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
           <button className="text-2xl  mr-4" onClick={toggleSidebar}>
             <MenuIcon />
           </button>
-          <span className="text-xl font-semibold">Company Name</span>
+          <Link href={"/"} className="text-xl font-semibold">E Pizza Express</Link>
         </div>
         <div className="flex gap-2 items-center">
           <p className="whitespace-nowrap hidden md:block">Hi user !!</p>
-          <DarkMode />
+          {/* <DarkMode /> */}
           <button
             title="Logout"
             className="rounded px-2 text-white py-1 transition-all duration-150 bg-red-500 hover:bg-red-700 flex gap-2 "

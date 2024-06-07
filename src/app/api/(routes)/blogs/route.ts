@@ -1,7 +1,9 @@
+import dbconnect from "@/configs/dbconnect";
 import Blog from "@/models/blog.model";
 import { slugify } from "@/utils/slugify";
 import { NextRequest, NextResponse } from "next/server";
-;
+
+dbconnect();
 export const GET = async () => {
   const blogs = await Blog.find();
   return NextResponse.json(blogs);

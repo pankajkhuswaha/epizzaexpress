@@ -23,14 +23,14 @@ const adminRoutes = [
     icon: <HelpCircle />,
   },
   {
-    name: "Products",
-    path: "/admin/products",
-    icon: <ListOrdered />,
-  },
-  {
     name: "Blogs",
     path: "/admin/blogs",
     icon: <Network />,
+  },
+  {
+    name: "Add New Blog",
+    path: "/admin/blogs/add",
+    icon: <ListOrdered />,
   },
 ];
 export default adminRoutes;

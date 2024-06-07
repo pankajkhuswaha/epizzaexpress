@@ -6,12 +6,12 @@ import { CalendarHeart, User } from "lucide-react";
 import Link from "next/link";
 
 const BlogCard = (blog: BlogProp) => {
-  const { image, createdAt, category, slug, title } = blog;
+  const { image, createdAt, category, slug, title, paragraph } = blog;
   return (
     <div className="single-post">
       <div className="blog-thumb cursor-pointer">
         <Link href={`/blogs/${slug}`}>
-          <img src={image} alt="img" />
+          <img src={image} alt="img" className="h-[180px] object-contain" />
         </Link>
       </div>
       <div className="blog-content">
@@ -25,9 +25,12 @@ const BlogCard = (blog: BlogProp) => {
             <User color="var(--primary-color)" /> By Admin
           </div>
         </div>
-        <h4 className="font-semibold capitalize">
-          <Link href={`/blogs/${slug}`}>{title}</Link>
-        </h4>
+        <Link href={`/blogs/${slug}`}>
+          <h4 className="font-semibold capitalize line-clamp-2 hover:text-primary">
+            {title}
+          </h4>
+          <p className="line-clamp-6 hover:text-gray-400">{paragraph}</p>
+        </Link>
       </div>
     </div>
   );

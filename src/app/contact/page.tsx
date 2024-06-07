@@ -2,6 +2,7 @@ import BreadCrumb from "@/components/BreadCrumb";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "E Pizza Express | Reach Out to Us",
@@ -22,51 +23,7 @@ const ContactUs = () => {
               <span>Contact</span>
               <h2>Get In Touch With Us</h2>
             </div>
-            <form action="#" className="contact-form">
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="contact-field p-relative c-name mb-8">
-                    <input type="text" placeholder="First Name" />
-                  </div>
-                </div>
-                <div className="col-lg-6">
-                  <div className="contact-field p-relative c-name mb-8">
-                    <input type="text" placeholder="Last Name" />
-                  </div>
-                </div>
-                <div className="col-lg-12">
-                  <div className="contact-field p-relative c-email mb-8">
-                    <input type="text" placeholder="Write here youremail" />
-                  </div>
-                </div>
-                <div className="col-lg-12">
-                  <div className="contact-field p-relative c-subject mb-8">
-                    <input type="text" placeholder="I would like to discuss" />
-                  </div>
-                </div>
-                <div className="col-lg-12">
-                  <div className="contact-field p-relative c-message mb-8">
-                    <textarea
-                      name="message"
-                      id="message"
-                      cols={30}
-                      rows={10}
-                      placeholder="Write comments"
-                    ></textarea>
-                  </div>
-                  <div className="slider-btn mb-8">
-                    <a
-                      href="#"
-                      className="btn ss-btn"
-                      data-animation="fadeInRight"
-                      data-delay=".8s"
-                    >
-                      Send Message
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </form>
+            <ContactForm/>
           </div>
           <div className="col-lg-6">
             <iframe

@@ -9,15 +9,14 @@ import IntroVideo from "./about/IntroVideo";
 export default function Home() {
   return (
     <>
-      <div id="home" className="h-screen -mt-32 -z-10">
+      <div id="home" className="h-screen -mt-[97px] -z-10">
         <div
           className="h-full w-full flex items-center relative"
           style={{
             backgroundImage: "url(/img/bg/header-bg.png)",
-            zIndex: "-10",
           }}
         >
-          <div className="container w-full flex items-center mt-10 lg:justify-center relative z-10">
+          <div className="container w-full flex items-center mt-10 lg:justify-center relative">
             <div className="flex-[5] lg:flex-[3] flex flex-col items-start lg:items-end pr-4 leading-8">
               <h2
                 className="text-6xl md:text-9xl font-bold lg:text-6xl lg:text-end"
@@ -41,7 +40,7 @@ export default function Home() {
                 SignUp Now
               </Link>
             </div>
-            <div className="flex-[5] hidden lg:block ">
+            <div className="flex-[5] hidden lg:block">
               <Image
                 src="/img/pizza.png"
                 alt="pizza-image"
@@ -59,9 +58,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="max-md:hidden overly-text absolute -z-10 top-[90%]">
+
+          {/* <div className="max-md:hidden overly-text absolute -z-10 top-[90%]">
             FRESH PIZZA
-          </div>
+          </div> */}
         </div>
       </div>
       <IntroVideo />

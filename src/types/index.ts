@@ -15,10 +15,13 @@ export interface UserProp {
 }
 
 export interface BlogProp {
+  _id:string;
   slug:string;
   title:string;
+  paragraph:string,
   category:string;
   content:string;
   image:string;
+  author:UserProp;
   createdAt:string,
 }

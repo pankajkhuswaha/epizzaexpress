@@ -1,5 +1,6 @@
 import { ChildrenProps } from "@/types";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Sign Up for E Pizza Express | Get 10% Off on Every Meal in Faridabad",
@@ -10,7 +11,20 @@ export const metadata: Metadata = {
 };
 
 const AuthLayout = ({ children }: ChildrenProps) => {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <div className="w-full p-2 mb-10">
+        <Image
+          src="/img/banner/offer.png"
+          alt="banner"
+          className="img md:h-[200px] md:mx-auto w-full object-contain"
+          width={1000}
+          height={200}
+        />
+      </div>
+    </>
+  );
 };
 
 export default AuthLayout;

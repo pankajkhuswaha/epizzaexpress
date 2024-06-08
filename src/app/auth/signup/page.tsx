@@ -93,24 +93,13 @@ const SignUpPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      // Form is valid, submit the data
-      console.log("Form data:", formData);
       signupUser(formData);
     }
   };
 
   return (
     <>
-      <div className="w-full p-2 mb-10">
-        <Image
-          src="/img/banner/offer.png"
-          alt="banner"
-          className="img md:h-[200px] md:mx-auto w-full object-contain"
-          width={1000}
-          height={200}
-        />
-      </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center my-10">
         <div className="bg-gray-900 p-4 md:p-8 rounded-2xl shadow-md w-full max-w-lg mx-2">
           <center className="">
             <h2 className="text-2xl font-bold text-primary">Register on</h2>
@@ -120,7 +109,7 @@ const SignUpPage = () => {
               width={200}
               height={90}
             />
-            <p className="text-lg mb-4">to grab latest offer</p>
+            {/* <p className="text-lg mb-4">to grab latest offer</p> */}
           </center>
 
           <form className="space-y-6" onSubmit={handleSubmit}>

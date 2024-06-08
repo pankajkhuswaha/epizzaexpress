@@ -14,15 +14,15 @@ const userSchema = new mongoose.Schema(
     },
     mobile: {
       type: String,
-      required: true,
+      // required: true,
       // unique: true,
     },
     password: {
       type: String,
       required: true,
     },
-    image:{
-      type:String,
+    image: {
+      type: String,
     },
     role: {
       type: String,
@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
     emailVerified: {
+      type: Boolean,
+      default: false,
+    },
+    offerApplied: {
       type: Boolean,
       default: false,
     },

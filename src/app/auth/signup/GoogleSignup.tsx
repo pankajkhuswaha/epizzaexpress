@@ -1,9 +1,9 @@
 "use client";
 
-import { FcGoogle } from "react-icons/fc";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, googleProvider } from "@/configs/firebase";
 import useAuth from "@/hooks/useAuth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc";
 
 const GoogleSignup = () => {
   const { mutateAsync: signupUser } = useAuth().sigup;
@@ -17,7 +17,7 @@ const GoogleSignup = () => {
       const signUpInfo = {
         name: user.displayName || "",
         email: user.email || "",
-        mobile: user.phoneNumber || "9999949999",
+        mobile: user.phoneNumber || "",
         image: user.photoURL || "",
         emailVerified: user.emailVerified,
         password: "null",

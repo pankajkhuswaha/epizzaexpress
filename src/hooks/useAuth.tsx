@@ -40,7 +40,7 @@ const useAuth = () => {
         icon: "success",
         title: "Login Successfull",
       });
-      router.push("/user")
+      // router.push("/user")
     },
     onError: (err) => {
       Swal.fire({

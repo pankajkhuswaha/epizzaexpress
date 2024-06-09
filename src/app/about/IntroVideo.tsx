@@ -10,7 +10,7 @@ const IntroVideo = () => {
       id="video"
       className="video pt-200 pb-200"
       style={{
-        backgroundImage: "url(img/video/video-bg.png)",
+        backgroundImage: "url(img/video/video-bg.webp)",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",

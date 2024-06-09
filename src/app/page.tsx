@@ -13,7 +13,7 @@ export default function Home() {
         <div
           className="h-full w-full flex items-center relative"
           style={{
-            backgroundImage: "url(/img/bg/header-bg.png)",
+            backgroundImage: "url(/img/bg/header-bg.webp)",
           }}
         >
           <div className="container w-full flex items-center mt-10 lg:justify-center relative">
@@ -42,7 +42,7 @@ export default function Home() {
             </div>
             <div className="flex-[5] hidden lg:block">
               <Image
-                src="/img/pizza.png"
+                src="/img/pizza.webp"
                 alt="pizza-image"
                 className="w-[800px] h-[600px] object-cover"
                 width={2000}
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
       </div>
       <IntroVideo />
-      <div style={{ background: "url(/img/bg/meal-bg.png)" }}>
+      <div style={{ background: "url(/img/bg/meal-bg.webp)" }}>
         <div className="container mt-20">
           <div className="section-title text-center mb-65">
             <span> POPULAR</span>

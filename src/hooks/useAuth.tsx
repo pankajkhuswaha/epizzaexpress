@@ -3,7 +3,7 @@
 import fetchApi from "@/utils/axios";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 interface LoginDetails {
   email: string;
@@ -13,7 +13,7 @@ interface LoginDetails {
 interface SignupDetail extends LoginDetails {
   name: string;
   mobile: string;
-  emailverified?:boolean
+  emailverified?: boolean;
 }
 
 export interface UserDetails extends SignupDetail {
@@ -36,14 +36,14 @@ const useAuth = () => {
     mutationFn: (data: LoginDetails) =>
       fetchApi("POST", "/api/auth/login", data),
     onSuccess: () => {
-      Swal.fire({
+      swal({
         icon: "success",
         title: "Login Successfull",
       });
       // router.push("/user")
     },
     onError: (err) => {
-      Swal.fire({
+      swal({
         icon: "error",
         title: "Login failed",
         text: err.message,
@@ -56,7 +56,7 @@ const useAuth = () => {
     mutationFn: (data: SignupDetail) =>
       fetchApi("POST", "/api/auth/signup", data),
     onSuccess: () => {
-      Swal.fire({
+      swal({
         icon: "success",
         title: "Signup Successfull",
         text: "Now you can login to proceed further",
@@ -64,7 +64,7 @@ const useAuth = () => {
       router.push("/auth/login");
     },
     onError: (err) => {
-      Swal.fire({
+      swal({
         icon: "error",
         title: "Signup failed",
         text: err.message,
@@ -74,5 +74,5 @@ const useAuth = () => {
 
   return { sigup, login };
 };
-
+ 
 export default useAuth;

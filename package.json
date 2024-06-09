@@ -31,7 +31,7 @@
     "react-toastify": "^10.0.5",
     "sass": "^1.77.2",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^11.11.0"
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

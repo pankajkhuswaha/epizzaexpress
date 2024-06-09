@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 export const showError = (error?: string) => {
   if (error) {
@@ -7,14 +7,14 @@ export const showError = (error?: string) => {
 };
 
 export const failedAlert = (title = "Oops..", message = "fail") => {
-  return Swal.fire({
+  return swal({
     title,
     icon: "error",
     text: message,
   });
 };
 export const successAlert = (title = "Oops..", message = "fail") => {
-  return Swal.fire({
+  return swal({
     title,
     icon: "success",
     text: message,

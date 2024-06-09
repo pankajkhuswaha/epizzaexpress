@@ -4,8 +4,8 @@ import { failedAlert, successAlert } from "@/utils/helpers";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import { EyeIcon, Trash2Icon } from "lucide-react";
-import Swal from "sweetalert2";
+import { Trash2Icon } from "lucide-react";
+import swal from "sweetalert";
 
 const ConatctRequest = () => {
   const { data: users } = useQuery({
@@ -16,14 +16,11 @@ const ConatctRequest = () => {
   const { mutate: deleteContact } = useMutation({
     mutationKey: ["delete-contact"],
     mutationFn: async (id: string) => {
-      const result = await Swal.fire({
+      const result = await swal({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        dangerMode: true,
       });
       if (result.isConfirmed) {
         return await fetchApi("DELETE", `/api/contact/${id}`);

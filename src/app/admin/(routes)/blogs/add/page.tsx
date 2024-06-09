@@ -27,7 +27,7 @@ const BlogForm = () => {
   const { mutate: updateBlog } = useUpdateBlog();
   useEffect(() => {
     reset(blog);
-  }, [blog]);
+  }, [blog, reset]);
 
   const onSubmit = (data: any) => {
     if (blog) {

@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 import GoogleSignup from "./GoogleSignup";
 
 interface SignupDetail {
@@ -74,7 +74,7 @@ const SignUpPage = () => {
     mutationFn: (data: SignupDetail) =>
       fetchApi("POST", "/api/auth/signup", data),
     onSuccess: () => {
-      Swal.fire({
+      swal({
         icon: "success",
         title: "Signup Successfull",
         text: "Now you can login to proceed further",
@@ -82,7 +82,7 @@ const SignUpPage = () => {
       router.push("/auth/login");
     },
     onError: (err) => {
-      Swal.fire({
+      swal({
         icon: "error",
         title: "Signup failed",
         text: err.message,

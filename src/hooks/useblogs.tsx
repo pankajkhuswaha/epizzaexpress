@@ -1,11 +1,11 @@
 "use client";
 import { BlogProp } from "@/types";
 import fetchApi from "@/utils/axios";
-import { successAlert, failedAlert } from "@/utils/helpers";
+import { failedAlert, successAlert } from "@/utils/helpers";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 export const useFecthBlogs = () => {
   return useQuery({
@@ -57,14 +57,11 @@ export const useDeleteBlog = () => {
   return useMutation({
     mutationKey: ["update-blog"],
     mutationFn: async (id: string) => {
-      const result = await Swal.fire({
+      const result = await swal({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        dangerMode: true,
       });
       if (result.isConfirmed) {
         return await fetchApi("DELETE", `/api/blogs/${id}`);

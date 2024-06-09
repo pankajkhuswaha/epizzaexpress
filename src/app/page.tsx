@@ -16,10 +16,10 @@ export default function Home() {
             backgroundImage: "url(/img/bg/header-bg.webp)",
           }}
         >
-          <div className="container w-full flex items-center mt-10 lg:justify-center relative">
-            <div className="flex-[5] lg:flex-[3] flex flex-col items-start lg:items-end pr-4 leading-8">
+          <div className="container w-full flex items-center mt-10 md:justify-center relative">
+            <div className="flex-[5] md:flex-[3] flex flex-col items-start md:items-end pr-4 leading-8">
               <h2
-                className="text-6xl md:text-9xl font-bold lg:text-6xl lg:text-end"
+                className="text-6xl md:text-[2.7rem] lg:text-6xl font-bold md:text-end"
                 data-animation="fadeInUp"
                 data-delay=".4s"
               >
@@ -29,22 +29,22 @@ export default function Home() {
               <p
                 data-animation="fadeInUp"
                 data-delay=".6s"
-                className="text-white text-xl mt-10 lg:mt-4"
+                className="text-white text-xl mt-10 md:mt-4 md:text-end"
               >
                 Made of fresh & premium ingredients
               </p>
               <Link
                 href="/menu"
-                className="btn ss-btn mt-10 lg:mt-4 cursor-pointer  z-10"
+                className="btn ss-btn mt-10 md:mt-4 cursor-pointer  z-10"
               >
                 SignUp Now
               </Link>
             </div>
-            <div className="flex-[5] hidden lg:block">
+            <div className="flex-[5] hidden md:block">
               <Image
                 src="/img/pizza.webp"
                 alt="pizza-image"
-                className="w-[800px] h-[700px] object-contain -ml-10"
+                className=" w-full h-[500px] lg:h-[700px] object-contain -ml-10 "
                 width={2000}
                 height={2000}
               />
@@ -74,11 +74,11 @@ export default function Home() {
               <img src="img/bg/line.png" alt="line" className="mx-auto" />
             </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-10 mt-10">
+          <div className="grid md:grid-cols-2 gap-10 mt-10">
             {menuData.combo.map((item, index) => (
               <div
                 key={index}
-                className="flex max-lg:flex-col justify-between lg:items-center mb-4 rounded"
+                className="flex max-md:flex-col justify-between md:items-center mb-4 rounded"
               >
                 {item.img && (
                   <div className="meal-img">
@@ -89,7 +89,7 @@ export default function Home() {
                     />
                   </div>
                 )}
-                <div className="meal-content flex-1 lg:px-4">
+                <div className="meal-content flex-1 md:px-4">
                   <h5 className="font-bold">
                     <a className="hover:text-primary" href="#">
                       {item.name}
@@ -97,8 +97,8 @@ export default function Home() {
                   </h5>
                   <p>{item.description}</p>
                 </div>
-                <div className="border-b-2 border-dotted lg:hidden my-4"></div>
-                <div className="meal-price text-right max-lg:my-5">
+                <div className="border-b-2 border-dotted md:hidden my-4"></div>
+                <div className="meal-price text-right max-md:my-5">
                   <a href="#" className="text-yellow-500 font-bold">
                     {item.price}
                   </a>

@@ -44,7 +44,7 @@ export default function Home() {
               <Image
                 src="/img/pizza.webp"
                 alt="pizza-image"
-                className="w-[800px] h-[600px] object-cover"
+                className="w-[800px] h-[700px] object-contain -ml-10"
                 width={2000}
                 height={2000}
               />

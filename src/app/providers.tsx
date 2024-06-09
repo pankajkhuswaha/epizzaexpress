@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useEffect } from "react";
 import { getToken } from "firebase/messaging";
+import { messaging } from "@/configs/firebase";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,12 +27,15 @@ const Providers = ({ children }: ChildrenProps) => {
      const permission = await Notification.requestPermission();
       
      if (permission == "granted") {
-      //  const token = await getToken(messaging, {
-      //    vapidKey:
-      //      "BEAj_iIP0Joi6f--tLvbclvtTRmXf-XaY64wrPb97U4zHCgOVpZFa0VxW_u0DoAHRyU-kst96uuSLEAXykcbsew",
-      //  });
-      //  console.log("token");
-      //  localStorage.setItem("notificationToken", token);
+      const mess = await messaging()
+      if(mess){
+         const token = await getToken(mess, {
+           vapidKey:
+             "BOIpJ_ahMvel-nZVaUO1mvZpVnVEA3odPIwwtf5bge0UvCB5aKSy094lK54yJ5KphPtlXKo5-pAR0FZfB9q1EC4",
+         });
+         console.log(token);
+         localStorage.setItem("notificationToken", token);
+      }
      } else {
        alert("You denied for permission");
      }

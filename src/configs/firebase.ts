@@ -8,12 +8,13 @@ import { getMessaging, isSupported } from "firebase/messaging";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDKXP7nzM5t9XgJuS3UOCWJxP37lyLRvnU",
-  authDomain: "epizza-express.firebaseapp.com",
-  projectId: "epizza-express",
-  storageBucket: "epizza-express.appspot.com",
-  messagingSenderId: "455130932034",
-  appId: "1:455130932034:web:2171a7caf8e99164e15edb",
+  apiKey: "AIzaSyBt9waSp8PtKsBznhkMj4UhOKrQTP7nO-s",
+  authDomain: "e-pizza-express.firebaseapp.com",
+  projectId: "e-pizza-express",
+  storageBucket: "e-pizza-express.appspot.com",
+  messagingSenderId: "672137301661",
+  appId: "1:672137301661:web:d8e08956f3f8a43e7b0e74",
+  measurementId: "G-CZDSXWVH85",
 };
 
 

@@ -31,7 +31,7 @@ const Providers = ({ children }: ChildrenProps) => {
       if(mess){
          const token = await getToken(mess, {
            vapidKey:
-             "BOIpJ_ahMvel-nZVaUO1mvZpVnVEA3odPIwwtf5bge0UvCB5aKSy094lK54yJ5KphPtlXKo5-pAR0FZfB9q1EC4",
+             "BPOWvZ3TyL85kjgVPFm4AZzewAgYT5UV13dVgrXI2yEFFeT_H-73yuW3RvkNl8gAIaxPG0MiNa-oQcYHWQVWLwY",
          });
          console.log(token);
          localStorage.setItem("notificationToken", token);

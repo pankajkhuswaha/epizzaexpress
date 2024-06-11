@@ -5,7 +5,6 @@ import bcrypt from "bcrypt";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-
 dbconnect();
 export async function POST(request: NextRequest) {
   try {
@@ -25,7 +24,7 @@ export async function POST(request: NextRequest) {
     if (isCorrectPassword) {
       const token = createJwtToken({ id: user._id }, "1h");
       cookies().set("token", token);
-      return NextResponse.json({ message: "Login successfull." });
+      return NextResponse.json({ message: "Login successfull.", user });
     }
     return NextResponse.json(
       { message: "Invalid email or password" },

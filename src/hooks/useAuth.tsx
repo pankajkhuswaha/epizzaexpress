@@ -1,8 +1,11 @@
 "use client";
 
+import { UserProp } from "@/types";
 import fetchApi from "@/utils/axios";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { failedAlert, successAlert } from "@/utils/helpers";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 import swal from "sweetalert";
 
 interface LoginDetails {
@@ -28,19 +31,85 @@ export const useUser = () => {
   });
 };
 
+export const useLogout = () => {
+  const router = useRouter();
+
+  return useMutation({
+    mutationKey: ["logout-user"],
+    mutationFn: () => fetchApi("POST", "/api/auth/logout"),
+    onSuccess: (res) => {
+      swal({
+        icon: "info",
+        title: "Logout successfully",
+      });
+
+      router.push("/");
+    },
+  });
+};
+
+export const useUpdateUser = () => {
+  const queryclient = useQueryClient();
+  const router = useRouter();
+  return useMutation({
+    mutationKey: ["update-user"],
+    mutationFn: ({ id, data }: { id: string; data: Record<string, string> }) =>
+      fetchApi("PUT", `/api/auth/${id}`, data),
+    onError: (err) => toast.error(err.message),
+    onSuccess: () => {
+      queryclient.invalidateQueries({ queryKey: ["fetch-all-users"] });
+      successAlert("", "User is updated Sucessfully");
+      router.push("/admin/users");
+    },
+  });
+};
+
+export const useDeleteUser = () => {
+  const queryclient = useQueryClient();
+  return useMutation({
+    mutationKey: ["update-user"],
+    mutationFn: async (id: string) => {
+      const result = await swal({
+        title: "Are you sure delete this user?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        dangerMode: true,
+        buttons: ["Cancel", true],
+      });
+      if (result) {
+        return await fetchApi("DELETE", `/api/auth/${id}`);
+      }
+      throw { message: "User canceled the operation" };
+    },
+    onError: (err) => failedAlert("Delete user failed", err.message),
+    onSuccess: () => {
+      queryclient.invalidateQueries({ queryKey: ["fetch-all-users"] });
+      successAlert("", "User is deleted Sucessfully");
+    },
+  });
+};
+
 const useAuth = () => {
   const router = useRouter();
 
   const login = useMutation({
     mutationKey: ["Login-user"],
     mutationFn: (data: LoginDetails) =>
-      fetchApi("POST", "/api/auth/login", data),
-    onSuccess: () => {
+      fetchApi<{ message: string; user: UserProp }>(
+        "POST",
+        "/api/auth/login",
+        data
+      ),
+    onSuccess: (res) => {
       swal({
         icon: "success",
         title: "Login Successfull",
       });
-      // router.push("/user")
+      if(res.user.role=="admin"){
+        router.push("/admin");
+        return
+      }
+      router.push("/");
     },
     onError: (err) => {
       swal({
@@ -74,5 +143,5 @@ const useAuth = () => {
 
   return { sigup, login };
 };
- 
+
 export default useAuth;

@@ -2,7 +2,7 @@
 import { ChildrenProps } from "@/types";
 import Sidebar from "./_components/Sidebar";
 import Navbar from "./_components/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useWidth from "@/hooks/useWidth";
 import { useUser } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
@@ -10,9 +10,14 @@ import { toast } from "react-toastify";
 
 const AdminLayout = ({ children }: ChildrenProps) => {
   const isMobile = useWidth();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(isMobile ? false : true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { data: user, isLoading } = useUser();
   const router = useRouter();
+  useEffect(()=>{
+    setIsSidebarOpen(!isMobile)
+  },[isMobile])
+  
+  
   if (isLoading) {
     return (
       <center className="my-20 flex items-center justify-center">
@@ -30,7 +35,7 @@ const AdminLayout = ({ children }: ChildrenProps) => {
             setOpen={() => setIsSidebarOpen(!isSidebarOpen)}
             isOpen={isSidebarOpen}
           />
-          <main className="container mx-auto px-2 md:p-6">{children}</main>
+          <main className="container mx-auto p-2 md:p-6">{children}</main>
         </div>
       </div>
     );

@@ -43,7 +43,7 @@ const AdminDashboard = () => {
   ];
   return (
     <>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 py-2">
         {cards.map(({ name, count, icon, path }, i) => {
           return (
             <Link

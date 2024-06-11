@@ -83,9 +83,9 @@ const NotificationList = () => {
     <>
       <div className="flex my-2 mb-4 justify-between gap-4 items-center">
         <h1 className="text-primary text-2xl md:text-4xl">List of All Notifications</h1>
-        <Link href={"/admin/notifications/add"} className="btn">
+        {/* <Link href={"/admin/notifications/add"} className="btn">
           Add New Notification
-        </Link>
+        </Link> */}
       </div>
       <div className="ag-theme-quartz-auto-dark" style={{ height: 500 }}>
         <AgGridReact rowData={notifications} columnDefs={columns} />

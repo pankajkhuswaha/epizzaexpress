@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import swal from "sweetalert";
 import GoogleSignup from "./GoogleSignup";
 import Link from "next/link";
+import PizzaLoder from "@/components/loader";
 
 interface SignupDetail {
   name: string;
@@ -70,7 +71,7 @@ const SignUpPage = () => {
     });
   };
 
-  const { mutate: signupUser } = useMutation({
+  const { mutate: signupUser,isPending } = useMutation({
     mutationKey: ["signup-user"],
     mutationFn: (data: SignupDetail) =>
       fetchApi("POST", "/api/auth/signup", data),
@@ -100,6 +101,8 @@ const SignUpPage = () => {
 
   return (
     <>
+      {isPending && <PizzaLoder text="Signing in ..." />}
+
       <div className="flex items-center justify-center my-10">
         <div className="bg-gray-900 p-4 md:p-8 rounded-2xl shadow-md w-full max-w-lg mx-2">
           <center className="">
@@ -212,7 +215,8 @@ const SignUpPage = () => {
           </form>
           <GoogleSignup />
           <Link href={"/auth/login"}>
-            Already registered ? <span className="text-blue-600">Login Now</span>
+            Already registered ?{" "}
+            <span className="text-blue-600">Login Now</span>
           </Link>
         </div>
       </div>

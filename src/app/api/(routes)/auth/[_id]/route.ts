@@ -17,8 +17,16 @@ export const PUT = async (req: NextRequest, { params }: Params) => {
 
 export const DELETE = async (_req: NextRequest, { params }: Params) => {
   const _id = params._id;
-  const user = await User.findByIdAndDelete(_id);
-  if (user) {
+  const user = await User.findById(_id);
+  if (user.role == "admin") {
+    return NextResponse.json(
+      { message: "Admin user can not be deleted" },
+      { status: 404 }
+    );
+  }
+
+  const deletedUser = await User.findByIdAndDelete(_id);
+  if (deletedUser) {
     return NextResponse.json({ message: "user deleted Successfully." });
   }
   return NextResponse.json(

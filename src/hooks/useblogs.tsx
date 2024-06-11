@@ -62,10 +62,13 @@ export const useDeleteBlog = () => {
         text: "You won't be able to revert this!",
         icon: "warning",
         dangerMode: true,
+        buttons: ["Cancel", true],
       });
-      if (result.isConfirmed) {
+      if (result) {
         return await fetchApi("DELETE", `/api/blogs/${id}`);
       }
+      throw { message: "User canceled the operation" };
+
     },
     onError: (err) => failedAlert("Delete blog failed", err.message),
     onSuccess: () => {

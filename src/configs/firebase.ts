@@ -22,15 +22,14 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-export const messaging = async () => {
-  const supported = await isSupported();
-  if (supported) {
-    return getMessaging(app);
-  } else {
-    console.log("This browser is not supported");
-    return null;
-  }
-};
+// export const messaging = async () => {
+//   const supported = await isSupported();
+//   if (supported) {
+//     return getMessaging(app);
+//   } else {
+//     console.log("This browser is not supported");
+//     return null;
+//   }
+// };
 
-// export const messaging = getMessaging(app)
 export const googleProvider = new GoogleAuthProvider();

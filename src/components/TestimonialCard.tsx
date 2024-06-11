@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
+import { UserIcon } from "lucide-react";
+
 export interface Testimonial {
   content: string;
   name: string;
@@ -23,7 +26,7 @@ const TestimonialCard = (review: Testimonial) => {
           <img src="img/testimonial/arrow-box.png" alt="img" />
         </div>
         <div className="flex items-center gap-2 pl-2">
-          <img src="img/testimonial/avatar01.png" alt="img" />
+          <UserIcon className="border rounded-full size-10 flex items-center justify-center p-2"/>
           <div className="ta-info">
             <h6>{name}</h6>
           </div>

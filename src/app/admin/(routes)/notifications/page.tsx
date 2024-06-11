@@ -1,20 +1,20 @@
 "use client";
-import { useDeleteBlog, useFecthBlogs } from "@/hooks/useblogs";
-import { BlogProp } from "@/types";
+import { sendNotifications } from "@/actions/notification";
+import { useDeleteNotification, useFecthNotifications } from "@/hooks/useNotifiaction";
+import { NotificationProp } from "@/types";
 import { ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import {
   Edit2Icon,
-  EyeIcon,
   Trash2Icon
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const BlogList = () => {
-  const { data: blogs } = useFecthBlogs();
+const NotificationList = () => {
+  const { data: notifications } = useFecthNotifications();
   const router = useRouter();
-  const { mutate: deleteBlog } = useDeleteBlog();
+  const { mutate: deleteNotification } = useDeleteNotification();
   const columns: ColDef[] = [
     {
       headerName: "Sr. No",
@@ -26,22 +26,29 @@ const BlogList = () => {
     {
       headerName: "Date",
       field: "createdAt",
-      cellRenderer: ({ data }: { data: BlogProp }) => {
+      cellRenderer: ({ data }: { data: NotificationProp }) => {
         return new Date(data.createdAt).toLocaleString("en-us");
       },
     },
     {
-      headerName: "Blog Title",
+      headerName: "Title",
       field: "title",
     },
     {
-      headerName: "Paragraph",
-      field: "paragraph",
+      headerName: "Message",
+      field: "body",
+    },
+    {
+      headerName: "Message",
+      field: "body",
+      cellRenderer:({data}:{data:NotificationProp}) =>{
+        return <button onClick={()=>sendNotifications(data)} className="border bg-primary text-gray-900 rounded-xl px-4">Send Notification</button>
+      }
     },
     {
       headerName: "Image",
       field: "image",
-      cellRenderer: ({ data }: { data: BlogProp }) => {
+      cellRenderer: ({ data }: { data: NotificationProp }) => {
         return (
           <img
             src={data.image}
@@ -54,16 +61,17 @@ const BlogList = () => {
     {
       headerName: "Action",
       field: "_id",
-      cellRenderer: ({ data }: { data: BlogProp }) => {
+      cellRenderer: ({ data }: { data: NotificationProp }) => {
         return (
           <div className="flex gap-4 items-center py-2">
-            <EyeIcon className="text-sky-600 text-4xl cursor-pointer" />
             <Edit2Icon
-              onClick={() => router.push(`/admin/blogs/add?update=${data.slug}`)}
+              onClick={() =>
+                router.push(`/admin/notifications/add?update=${data._id}`)
+              }
               className="text-blue-600 text-4xl cursor-pointer"
             />
             <Trash2Icon
-              onClick={() => deleteBlog(data._id)}
+              onClick={() => deleteNotification(data._id)}
               className="text-red-600 text-4xl cursor-pointer"
             />
           </div>
@@ -74,16 +82,16 @@ const BlogList = () => {
   return (
     <>
       <div className="flex my-2 mb-4 justify-between gap-4 items-center">
-        <h1 className="text-primary text-2xl md:text-4xl">List of All Blogs</h1>
-        <Link href={"/admin/blogs/add"} className="btn">
-          Add New Blog
+        <h1 className="text-primary text-2xl md:text-4xl">List of All Notifications</h1>
+        <Link href={"/admin/notifications/add"} className="btn">
+          Add New Notification
         </Link>
       </div>
       <div className="ag-theme-quartz-auto-dark" style={{ height: 500 }}>
-        <AgGridReact rowData={blogs} columnDefs={columns} />
+        <AgGridReact rowData={notifications} columnDefs={columns} />
       </div>
     </>
   );
 };
 
-export default BlogList;
+export default NotificationList;

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import swal from "sweetalert";
 import GoogleSignup from "./GoogleSignup";
+import Link from "next/link";
 
 interface SignupDetail {
   name: string;
@@ -210,6 +211,9 @@ const SignUpPage = () => {
             </div>
           </form>
           <GoogleSignup />
+          <Link href={"/auth/login"}>
+            Already registered ? <span className="text-blue-600">Login Now</span>
+          </Link>
         </div>
       </div>
     </>

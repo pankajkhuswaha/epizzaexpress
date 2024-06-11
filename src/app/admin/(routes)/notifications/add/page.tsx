@@ -1,43 +1,43 @@
 "use client";
 import {
-  useAddBlog,
-  useFecthSingleBlog,
-  useUpdateBlog,
-} from "@/hooks/useblogs";
+  useAddNotification,
+  useFecthSingleNotification,
+  useUpdateNotification,
+} from "@/hooks/useNotifiaction";
 import { showError } from "@/utils/helpers";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-const BlogForm = () => {
+const NotificationForm = () => {
   const _id = useSearchParams().get("update") || undefined;
-  const { data: blog } = useFecthSingleBlog(_id);
+  const { data: notification } = useFecthSingleNotification(_id);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({ defaultValues: blog });
+  } = useForm({ defaultValues: notification });
 
-  const { mutate: addBlog } = useAddBlog();
-  const { mutate: updateBlog } = useUpdateBlog();
+  const { mutate: addNotification } = useAddNotification();
+  const { mutate: updateNotification } = useUpdateNotification();
   useEffect(() => {
-    reset(blog);
-  }, [blog, reset]);
+    reset(notification);
+  }, [notification, reset]);
 
   const onSubmit = (data: any) => {
-    if (blog) {
-      updateBlog({ id: blog._id, data });
+    if (notification) {
+      updateNotification({ id: notification._id, data });
       return;
     }
-    addBlog(data);
+    addNotification(data);
   };
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className=" rounded mb-4 w-full">
         <h2 className="text-2xl text-center text-primary md:text-4xl font-bold my-2 md:my-4">
-          {blog ? "Update" : "Create New"} Blog
+          {notification ? "Update" : "Create New"} Notification
         </h2>
 
         {/* Title */}
@@ -51,60 +51,28 @@ const BlogForm = () => {
           <input
             {...register("title", { required: "Title is required" })}
             id="title"
-            placeholder="Enter your Blog title"
+            placeholder="Enter your Notification title"
             className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {showError(errors?.title?.message as string)}
         </div>
-
-        {/* Paragraph */}
+        {/* Title */}
         <div className="mb-4">
           <label
             className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2"
-            htmlFor="paragraph"
+            htmlFor="title"
           >
-            Paragraph
-          </label>
-          <textarea
-            {...register("paragraph", { required: "Paragraph is required" })}
-            id="paragraph"
-            placeholder="Enter short description about blog"
-            className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-          {showError(errors?.paragraph?.message as string)}
-        </div>
-
-        {/* Category */}
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2"
-            htmlFor="category"
-          >
-            Category
+            Message
           </label>
           <input
-            {...register("category", { required: "Category is required" })}
-            id="category"
-            placeholder="Enter blog category"
+            {...register("body", {
+              required: "Notification message is required",
+            })}
+            id="body"
+            placeholder="Enter your Notification message"
             className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
-          {showError(errors?.category?.message as string)}
-        </div>
-
-        {/* Content */}
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2"
-            htmlFor="content"
-          >
-            Content
-          </label>
-          <textarea
-            {...register("content", { required: "Content is required" })}
-            id="content"
-            className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-          {showError(errors?.content?.message as string)}
+          {showError(errors?.title?.message as string)}
         </div>
 
         {/* Image */}
@@ -126,7 +94,7 @@ const BlogForm = () => {
 
         <div className="flex items-center justify-between">
           <button type="submit" className="btn">
-            {blog?"Update":"Add"} Blog
+            {notification ? "Update" : "Add"} Notification
           </button>
         </div>
       </form>
@@ -134,4 +102,4 @@ const BlogForm = () => {
   );
 };
 
-export default BlogForm;
+export default NotificationForm;

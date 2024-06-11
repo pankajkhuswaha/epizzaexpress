@@ -3,7 +3,7 @@
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 import { app } from "./firebase";
 import swal from "sweetalert";
-import { saveNotificationToken } from "@/actions/sendNotifiactionToken";
+import { saveNotificationToken } from "@/actions/notification";
 
 export const requestNotificationPermission = async () => {
   const fcm_token = localStorage.getItem("fcm_token");

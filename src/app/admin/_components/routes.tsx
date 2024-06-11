@@ -1,4 +1,6 @@
 import {
+  BellIcon,
+  BellPlusIcon,
   HelpCircle,
   LayoutDashboard,
   ListOrdered,
@@ -31,6 +33,16 @@ const adminRoutes = [
     name: "Add New Blog",
     path: "/admin/blogs/add",
     icon: <ListOrdered />,
+  },
+  {
+    name: "Notifications",
+    path: "/admin/notifications",
+    icon: <BellIcon />,
+  },
+  {
+    name: "Add New Notification",
+    path: "/admin/notifications/add",
+    icon: <BellPlusIcon />,
   },
 ];
 export default adminRoutes;

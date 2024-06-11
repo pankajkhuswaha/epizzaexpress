@@ -13,6 +13,13 @@ export interface UserProp {
   mobile: string;
   image?: string;
 }
+export interface NotificationProp {
+  _id: string;
+  title: string;
+  body: string;
+  image?: string;
+  createdAt: string;
+}
 
 export interface BlogProp {
   _id:string;

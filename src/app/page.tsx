@@ -37,7 +37,7 @@ export default function Home() {
                 href="/menu"
                 className="btn ss-btn mt-10 md:mt-4 cursor-pointer  z-10"
               >
-                SignUp Now
+                Our Menu
               </Link>
             </div>
             <div className="flex-[5] hidden md:block">

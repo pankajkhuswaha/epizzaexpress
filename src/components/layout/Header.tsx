@@ -3,11 +3,12 @@
 import { Menu, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const atAdmin = pathname.includes("admin");
   const [toggle, setToggle] = useState(false);
   if (atAdmin) return;
@@ -35,7 +36,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="header-area z-[99999]" style={{position:"inherit"}}>
+    <header className="header-area z-[99999]" style={{ position: "inherit" }}>
       <div id="header-sticky" className="menu-area z-[9999] p-0">
         <div className="container flex justify-between items-center p-2">
           <Link href="/" className="block">
@@ -79,7 +80,7 @@ const Header = () => {
 
         <div
           className={`main-menu overflow-hidden lg:hidden z-50 w-full transition-all duration-300 ${
-            !toggle ? "h-0 " : "h-[260px]"
+            !toggle ? "h-0 " : "h-[300px]"
           } text-right pr-15 bg-secondary`}
         >
           <ul>
@@ -93,6 +94,15 @@ const Header = () => {
               </li>
             ))}
           </ul>
+          <button
+            onClick={() => {
+              router.push("/auth/signup");
+              setToggle(!toggle);
+            }}
+            className="btn mt-2"
+          >
+            Signup Now
+          </button>
         </div>
       </div>
     </header>

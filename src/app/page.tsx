@@ -9,42 +9,42 @@ import IntroVideo from "./about/IntroVideo";
 export default function Home() {
   return (
     <>
-      <div id="home" className="h-screen -mt-[97px] -z-10">
+      <div id="home" className="-z-10 -mt-[97px] h-screen">
         <div
-          className="h-full w-full flex items-center relative"
+          className="relative flex h-full w-full items-center"
           style={{
             backgroundImage: "url(/img/bg/header-bg.webp)",
           }}
         >
-          <div className="container w-full flex items-center mt-10 md:justify-center relative">
-            <div className="flex-[5] md:flex-[3] flex flex-col items-start md:items-end pr-4 leading-8">
+          <div className="container relative mt-10 flex w-full items-center md:justify-center">
+            <div className="flex flex-[5] flex-col items-start pr-4 leading-8 md:flex-[3] md:items-end">
               <h2
-                className="text-6xl md:text-[2.7rem] lg:text-6xl font-bold md:text-end"
+                className="text-6xl font-bold md:text-end md:text-[2.7rem] lg:text-6xl"
                 data-animation="fadeInUp"
                 data-delay=".4s"
               >
-                <span className="text-primary leading-10">WE TAKE </span> <br />{" "}
+                <span className="leading-10 text-primary">WE TAKE </span> <br />{" "}
                 PRIDE IN OUR FOOD
               </h2>
               <p
                 data-animation="fadeInUp"
                 data-delay=".6s"
-                className="text-white text-xl mt-10 md:mt-4 md:text-end"
+                className="mt-10 text-xl text-white md:mt-4 md:text-end"
               >
                 Made of fresh & premium ingredients
               </p>
               <Link
                 href="/menu"
-                className="btn ss-btn mt-10 md:mt-4 cursor-pointer  z-10"
+                className="btn ss-btn z-10 mt-10 cursor-pointer md:mt-4"
               >
                 Our Menu
               </Link>
             </div>
-            <div className="flex-[5] hidden md:block">
+            <div className="hidden flex-[5] md:block">
               <Image
                 src="/img/pizza.webp"
                 alt="pizza-image"
-                className=" w-full h-[500px] lg:h-[700px] object-contain -ml-10 "
+                className="-ml-10 h-[500px] w-full object-contain lg:h-[700px]"
                 width={2000}
                 height={2000}
               />
@@ -64,28 +64,34 @@ export default function Home() {
           </div> */}
         </div>
       </div>
+
       <IntroVideo />
-      <div style={{ background: "url(/img/bg/meal-bg.webp)" }}>
+
+      <div
+        style={{
+          background: "url(/img/bg/meal-bg.webp)",
+        }}
+      >
         <div className="container mt-20">
-          <div className="section-title text-center mb-65">
+          <div className="section-title mb-65 text-center">
             <span> POPULAR</span>
             <h2>POPULAR MEAL</h2>
             <p className="mt-2">
               <img src="img/bg/line.png" alt="line" className="mx-auto" />
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-10 mt-10">
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
             {menuData.combo.map((item, index) => (
               <div
                 key={index}
-                className="flex max-md:flex-col justify-between md:items-center mb-4 rounded"
+                className="mb-4 flex justify-between rounded max-md:flex-col md:items-center"
               >
                 {item.img && (
                   <div className="meal-img">
                     <img
                       src={item.img}
                       alt="img"
-                      className="w-24 h-24 object-cover rounded"
+                      className="h-24 w-24 rounded object-cover"
                     />
                   </div>
                 )}
@@ -97,9 +103,9 @@ export default function Home() {
                   </h5>
                   <p>{item.description}</p>
                 </div>
-                <div className="border-b-2 border-dotted md:hidden my-4"></div>
+                <div className="my-4 border-b-2 border-dotted md:hidden"></div>
                 <div className="meal-price text-right max-md:my-5">
-                  <a href="#" className="text-yellow-500 font-bold">
+                  <a href="#" className="font-bold text-yellow-500">
                     {item.price}
                   </a>
                 </div>
@@ -117,9 +123,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div style={{ background: "url(/img/bg/test-bg.png)" }}>
         <Testimonials />
       </div>
+
       <About />
     </>
   );

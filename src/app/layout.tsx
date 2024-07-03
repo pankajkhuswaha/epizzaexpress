@@ -36,11 +36,15 @@ export default function RootLayout({ children }: Readonly<ChildrenProps>) {
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
-        <Providers>
+       
+        <center className="my-20">
+          Your website hosting is expired . Please contact your website adminstrator to continue.
+        </center>
+        {/* <Providers>
           <Header />
           <main>{children}</main>
           <Footer />
-        </Providers>
+        </Providers> */}
         <Script
           src="/js/vendor/jquery-1.12.4.min.js"
           strategy="beforeInteractive"

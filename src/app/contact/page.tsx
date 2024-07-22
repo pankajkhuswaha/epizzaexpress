@@ -27,7 +27,7 @@ const ContactUs = () => {
           </div>
           <div className="col-lg-6">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219.4168677378301!2d77.28217954498282!3d28.36882844209638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdea701108b19%3A0xff8907ad8ce7fa!2sGali%20Number%206!5e0!3m2!1sen!2sin!4v1717604192673!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.7741437205846!2d77.27952491062952!3d28.3656771960487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdea6f352b7cb%3A0xe3493b8980c904e5!2sE%20Pizza%20Express!5e0!3m2!1sen!2sin!4v1721658207325!5m2!1sen!2sin"
               width="600"
               height="600"
               loading="lazy"

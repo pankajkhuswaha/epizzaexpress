@@ -55,22 +55,21 @@ const Footer = () => {
                 <div className="footer-link">
                   <div className="f-time">
                     <ul>
-                      <li>
-                        <div className="day">MONDAY</div>
-                        <div className="time">9.00 - 22.00</div>
+                      <li className="flex">
+                        <p className="day text-lg font-semibold">Monday - Sunday <br /> 11:00 AM - 23:00 PM</p>
                       </li>
-                      <li>
+                      {/* <li>
                         <div className="day">TUESDAY</div>
-                        <div className="time">9.00 - 22.00</div>
+                        <div className="time">11:00 AM - 23:00 PM</div>
                       </li>
                       <li>
                         <div className="day">SATURDAY</div>
-                        <div className="time">9.00 - 22.00</div>
+                        <div className="time">11:00 AM - 23:00 PM</div>
                       </li>
                       <li>
                         <div className="day">SUNDAY</div>
-                        <div className="time">9.00 - 22.00</div>
-                      </li>
+                        <div className="time">11:00 AM - 23:00 PM</div>
+                      </li> */}
                     </ul>
                   </div>
                 </div>
@@ -92,7 +91,7 @@ const Footer = () => {
                       Faridabad
                     </p>
                     <a
-                      href="https://maps.app.goo.gl/7VPn1SnLB8JNRqUc8"
+                      href="https://maps.app.goo.gl/zHQhSjvMC7BGREpH9"
                       target="_blank"
                       className="btn ss-btn mt-20"
                     >

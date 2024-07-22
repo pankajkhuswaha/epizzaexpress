@@ -36,12 +36,12 @@ const Menus = () => {
                 <img
                   src={item.img}
                   alt="img"
-                  className="w-24 h-24 object-cover rounded"
+                  className="w-28 h-28 object-cover rounded"
                 />
               </div>
             )}
             <div className="meal-content flex-1 lg:px-4">
-              <a className="hover:text-primary" href="#">
+              <a className="hover:text-primary text-xl font-semibold" href="#">
                 {item.name}
               </a>
               <p>{item.description}</p>

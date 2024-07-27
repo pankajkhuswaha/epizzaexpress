@@ -10,7 +10,7 @@ const Footer = () => {
   if (atAdmin) return;
   return (
     <footer className="footer-bg footer-p">
-      <a href="https://wa.me/8307057298?text=Hi, I am interested in our first signup offer on epizzaexpress website could you send me more details" target="_blank" className="block fixed size-12 bottom-6 cursor-pointer right-6 z-50">
+      <a href="https://wa.me/918307057298?text=Hi, I am interested in our first signup offer on epizzaexpress website could you send me more details" target="_blank" className="block fixed size-12 bottom-6 cursor-pointer right-6 z-50">
         <img style={{filter: "drop-shadow(2px 1px 5px white)"}} src="/whatsapp.svg" alt="whatsapp" />
       </a>
       <div

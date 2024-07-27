@@ -3,12 +3,16 @@
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
+import { PhoneCallIcon } from "lucide-react";
 const Footer = () => {
   const pathname = usePathname();
   const atAdmin = pathname.includes("admin");
   if (atAdmin) return;
   return (
     <footer className="footer-bg footer-p">
+      <a href="https://wa.me/8307057298?text=Hi, I am interested in our first signup offer on epizzaexpress website could you send me more details" target="_blank" className="block fixed size-12 bottom-6 cursor-pointer right-6 z-50">
+        <img style={{filter: "drop-shadow(2px 1px 5px white)"}} src="/whatsapp.svg" alt="whatsapp" />
+      </a>
       <div
         className="footer-top py-20"
         
@@ -90,10 +94,17 @@ const Footer = () => {
                       60 Feet Road , Shop No 6 ,Nagla chowk , Jawahar colony
                       Faridabad
                     </p>
+                     <a
+                      href="tel:8684848727"
+                      target="_blank"
+                      className="flex gap-4 items-center justify-center my-4 text-xl font-semibold hover:text-primary"
+                    >
+                     <PhoneCallIcon color="white"/> 8684848727 
+                    </a>
                     <a
                       href="https://maps.app.goo.gl/zHQhSjvMC7BGREpH9"
                       target="_blank"
-                      className="btn ss-btn mt-20"
+                      className="btn ss-btn"
                     >
                       GET DIRECTIONS
                     </a>

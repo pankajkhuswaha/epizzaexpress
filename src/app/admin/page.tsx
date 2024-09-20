@@ -2,19 +2,19 @@
 import fetchApi from "@/utils/axios";
 import { useQuery } from "@tanstack/react-query";
 import {
+  BellIcon,
   HelpCircle,
-  ListOrderedIcon,
   NetworkIcon,
-  UserIcon,
+  UserIcon
 } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 const AdminDashboard = () => {
   const { data: stats } = useQuery({
     queryKey: ["fetch-admin-data"],
     queryFn: () => fetchApi<Record<string, number>>("GET", "/api/admin"),
   });
+  console.log(stats)
   const cards = [
     {
       name: "Registered Users",
@@ -24,7 +24,7 @@ const AdminDashboard = () => {
     },
     {
       name: "Conatct Us Req.",
-      count: stats?.contactreqs || 0,
+      count: stats?.contactus || 0,
       icon: <HelpCircle />,
       path: "/admin/contact-reqs",
     },
@@ -35,10 +35,10 @@ const AdminDashboard = () => {
       path: "/admin/blogs",
     },
     {
-      name: "Products",
-      count: stats?.products || 0,
-      icon: <ListOrderedIcon />,
-      path: "/admin/products",
+      name: "Notifications",
+      count: stats?.notifications || 0,
+      icon: <BellIcon />,
+      path: "/admin/notifications",
     },
   ];
   return (

@@ -9,9 +9,9 @@ import { useDeleteUser, useUpdateUser } from "@/hooks/useAuth";
 import { Trash2Icon } from "lucide-react";
 
 const UserList = () => {
-  const { data: users } = useQuery({
+  const { data } = useQuery({
     queryKey: ["fetch-all-users"],
-    queryFn: () => fetchApi<UserProp[]>("GET", "/api/auth"),
+    queryFn: () => fetchApi<{users:UserProp[]}>("GET", "/api/auth/"),
   });
   const { mutate: updateUser } = useUpdateUser();
   const { mutate: deleteUser } = useDeleteUser();
@@ -71,7 +71,7 @@ const UserList = () => {
       className="ag-theme-quartz-auto-dark" // applying the grid theme
       style={{ height: 500 }} // the grid will fill the size of the parent container
     >
-      <AgGridReact rowData={users} columnDefs={columns} />
+      <AgGridReact rowData={data?.users} columnDefs={columns} />
     </div>
   );
 };

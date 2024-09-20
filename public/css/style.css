@@ -4209,6 +4209,7 @@ div.single-cta:last-child {
   transition: 0.3s;
   border: 1px solid #c3c3c3;
   border-radius: 30px;
+  color:gray;
 }
 
 .contact-field.c-name::after {

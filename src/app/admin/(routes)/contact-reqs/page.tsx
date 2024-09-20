@@ -8,31 +8,33 @@ import { Trash2Icon } from "lucide-react";
 import swal from "sweetalert";
 
 const ConatctRequest = () => {
-  const { data: users } = useQuery({
+  const { data: contactus } = useQuery({
     queryKey: ["fetch-all-contactRequests"],
     queryFn: () => fetchApi<Record<string, string>[]>("GET", "/api/contact"),
   });
   const queryclient = useQueryClient();
   const { mutate: deleteContact } = useMutation({
     mutationKey: ["delete-contact"],
-    mutationFn: async (id: string) => {
-      const result = await swal({
+    mutationFn: (id: string) =>  fetchApi("DELETE", `/api/contact/${id}`),    
+    onError: (err) => failedAlert("Delete contact failed", err.message),
+    onSuccess: () => {
+      queryclient.invalidateQueries({ queryKey: ["fetch-all-contactRequests"] });
+      successAlert("", "Contact is deleted Sucessfully");
+    },
+  });
+
+  const handleDelete = async(id:string)=>{
+    const result = await swal({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         icon: "warning",
         dangerMode: true,
       });
-      if (result.isConfirmed) {
-        return await fetchApi("DELETE", `/api/contact/${id}`);
+      if (result) {
+        deleteContact(id);
       }
-    },
-    onError: (err) => failedAlert("Delete contact failed", err.message),
-    onSuccess: () => {
-      queryclient.invalidateQueries({ queryKey: ["fetch-all-contacts"] });
-      successAlert("", "Contact is deleted Sucessfully");
-    },
-  });
-
+  }
+  
   const columns: ColDef[] = [
     {
       headerName: "Sr. No",
@@ -75,7 +77,7 @@ const ConatctRequest = () => {
         return (
           <div className="flex gap-4 items-center py-2">
             <Trash2Icon
-              onClick={() => deleteContact(data._id)}
+              onClick={() => handleDelete(data._id)}
               className="text-red-600 text-4xl cursor-pointer"
             />
           </div>
@@ -91,7 +93,7 @@ const ConatctRequest = () => {
         </h1>
       </div>
       <div className="ag-theme-quartz-auto-dark" style={{ height: 500 }}>
-        <AgGridReact rowData={users} columnDefs={columns} />
+        <AgGridReact rowData={contactus} columnDefs={columns} />
       </div>
     </>
   );

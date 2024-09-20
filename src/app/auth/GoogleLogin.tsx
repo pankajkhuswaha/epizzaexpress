@@ -1,4 +1,5 @@
 "use client";
+import PizzaLoder from "@/components/loader";
 import { auth, googleProvider } from "@/configs/firebase";
 import { ApiResponse, IUser } from "@/types";
 import fetchApi from "@/utils/axios";
@@ -8,7 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const GoogleLogin = ({ text }: { text?: string }) => {
-  const { mutateAsync: signupUser } = useMutation({
+  const { mutateAsync: signupUser,isPending } = useMutation({
     mutationKey: ["google-signup"],
     mutationFn: (user: IUser) =>
       fetchApi<ApiResponse>("POST", "/api/auth/google-login", user),
@@ -31,6 +32,7 @@ const GoogleLogin = ({ text }: { text?: string }) => {
   };
   return (
     <>
+    {isPending && <PizzaLoder text="Login in..."/>}
       <button
         onClick={handleGoogleSignup}
         className="my-4 flex w-full cursor-pointer items-center justify-center gap-4 rounded-full border py-2 hover:bg-slate-700"

@@ -1,11 +1,12 @@
 "use client";
+import PizzaLoder from "@/components/loader";
 import fetchApi from "@/utils/axios";
 import { failedAlert, successAlert } from "@/utils/helpers";
 import { useMutation } from "@tanstack/react-query";
 import React from "react";
 
 const ContactForm = () => {
-  const { mutateAsync: sendRequest } = useMutation({
+  const { mutateAsync: sendRequest,isPending } = useMutation({
     mutationKey: ["send-contact-request"],
     mutationFn: (data: any) => fetchApi("POST", "/api/contact", data),
     onSuccess: () =>
@@ -25,6 +26,7 @@ const ContactForm = () => {
   };
   return (
     <form onSubmit={handleSubmit} className="contact-form">
+      {isPending && <PizzaLoder text="Sending Request..."/>}
       <div className="row">
         <div className="col-lg-6">
           <div className="contact-field p-relative c-name mb-8">

@@ -1,8 +1,7 @@
 "use client";
-
 import { auth, googleProvider } from "@/configs/firebase";
 import useAuth from "@/hooks/useAuth";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 
 const GoogleSignup = () => {
@@ -30,7 +29,7 @@ const GoogleSignup = () => {
     <>
       <button
         onClick={handleGoogleSignup}
-        className="border rounded-full my-4 hover:bg-slate-700 cursor-pointer w-full flex gap-4 items-center py-2 justify-center"
+        className="my-4 flex w-full cursor-pointer items-center justify-center gap-4 rounded-full border py-2 hover:bg-slate-700"
       >
         <FcGoogle size={30} /> Register with google
       </button>

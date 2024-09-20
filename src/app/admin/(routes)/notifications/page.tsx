@@ -11,6 +11,7 @@ import { ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import { Edit2Icon, Trash2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import swal from "sweetalert";
 
 const NotificationList = () => {
   const { data: notifications } = useFecthNotifications();

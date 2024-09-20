@@ -1,11 +1,22 @@
 import dbconnect from "@/configs/dbconnect";
+import { verifyJwtToken } from "@/configs/jwt";
+import User from "@/models/user.model";
 import mongoose from "mongoose";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 dbconnect();
-export const GET = async () => {
+export const GET = async (request:NextRequest) => {
   const db = mongoose.connection.db;
   try {
+    const token = await request.cookies.get("token")?.value;
+    if(!token){
+        return NextResponse.json({ message: "Please Login to continue" }, { status: 401 });
+    }
+    const decrytedToken = verifyJwtToken(token);
+    const user = await User.findById(decrytedToken.id);
+    if(user.role != "admin"){
+        return NextResponse.json({ message: "UnAuthorized Access" }, { status: 401 });
+    }
     const collections = await db.listCollections().toArray();
     const counts: Record<string, number> = {};
     await Promise.all(

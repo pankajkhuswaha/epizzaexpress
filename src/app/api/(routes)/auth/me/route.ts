@@ -1,10 +1,11 @@
+import dbconnect from "@/configs/dbconnect";
 import { verifyJwtToken } from "@/configs/jwt";
 import User from "@/models/user.model";
 import { JwtPayload } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-
+dbconnect();
 export const GET = async () => {
   try {
     const tokenCookie = cookies().get("token");

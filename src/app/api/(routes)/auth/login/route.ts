@@ -5,9 +5,9 @@ import bcrypt from "bcrypt";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-dbconnect();
 export async function POST(request: NextRequest) {
   try {
+    await dbconnect();
     const body = await request.json();
     const user = await User.findOne({ email: body.email });
     if (!user)

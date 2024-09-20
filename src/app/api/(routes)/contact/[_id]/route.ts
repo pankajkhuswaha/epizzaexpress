@@ -19,7 +19,6 @@ export const PUT = async (req: NextRequest, { params }: Params) => {
 export const DELETE = async (_req: NextRequest, { params }: Params) => {
   const _id = params._id;
   const conatctus = await Conatctus.findByIdAndDelete(_id);
-  console.log(conatctus)
   if (conatctus) {
     return NextResponse.json({ message: "Conatctus deleted Successfully." });
   }

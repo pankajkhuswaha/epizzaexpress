@@ -15,12 +15,12 @@ export const createJwtToken = (data: any, duration: string = "1d"): string => {
  * Verifies a given JSON Web Token (JWT).
  *
  * @param {string} token - The JWT to be verified.
- * @returns {string | JwtPayload} The decoded token payload if verification is successful.
+ * @returns {JwtPayload} The decoded token payload if verification is successful.
  * @throws {Error} If the token is invalid or verification fails.
  */
-export const verifyJwtToken = (token: string): string | JwtPayload => {
+export const verifyJwtToken = (token: string): JwtPayload => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as unknown as JwtPayload;
     return decoded;
   } catch (error) {
     throw new Error("Invalid or expired token");

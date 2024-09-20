@@ -14,7 +14,6 @@ const AdminDashboard = () => {
     queryKey: ["fetch-admin-data"],
     queryFn: () => fetchApi<Record<string, number>>("GET", "/api/admin"),
   });
-  console.log(stats)
   const cards = [
     {
       name: "Registered Users",

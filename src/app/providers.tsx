@@ -19,7 +19,7 @@ import "slick-carousel/slick/slick.css";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
+      refetchOnWindowFocus: false,      
     },
   },
 });

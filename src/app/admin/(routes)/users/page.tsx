@@ -11,7 +11,7 @@ import { Trash2Icon } from "lucide-react";
 const UserList = () => {
   const { data } = useQuery({
     queryKey: ["fetch-all-users"],
-    queryFn: () => fetchApi<{users:UserProp[]}>("GET", "/api/auth/"),
+    queryFn: () => fetchApi<{users:UserProp[]}>("GET", "/api/auth/users"),
   });
   const { mutate: updateUser } = useUpdateUser();
   const { mutate: deleteUser } = useDeleteUser();

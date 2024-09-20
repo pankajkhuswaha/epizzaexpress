@@ -32,8 +32,6 @@ export const useUser = () => {
 };
 
 export const useLogout = () => {
-  const router = useRouter();
-
   return useMutation({
     mutationKey: ["logout-user"],
     mutationFn: () => fetchApi("POST", "/api/auth/logout"),
@@ -42,8 +40,7 @@ export const useLogout = () => {
         icon: "info",
         title: "Logout successfully",
       });
-
-      router.push("/");
+      window.location.href = "/";
     },
   });
 };

@@ -7,22 +7,18 @@ import { FcGoogle } from "react-icons/fc";
 const GoogleSignup = () => {
   const { mutateAsync: signupUser } = useAuth().sigup;
   const handleGoogleSignup = async () => {
-    await signInWithPopup(auth, googleProvider)
-      .then(async (result) => {
-        const user = result.user;
-        const signUpInfo = {
-          name: user.displayName || "",
-          email: user.email || "",
-          mobile: user.phoneNumber || "",
-          image: user.photoURL || "",
-          emailVerified: user.emailVerified,
-          password: "null",
-        };
-        await signupUser(signUpInfo);
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    await signInWithPopup(auth, googleProvider).then(async (result) => {
+      const user = result.user;
+      const signUpInfo = {
+        name: user.displayName || "",
+        email: user.email || "",
+        mobile: user.phoneNumber || "",
+        image: user.photoURL || "",
+        emailVerified: user.emailVerified,
+        password: "null",
+      };
+      await signupUser(signUpInfo);
+    });    
 
     // const credential = GoogleAuthProvider.credentialFromResult(result);
     // const token = credential?.accessToken;

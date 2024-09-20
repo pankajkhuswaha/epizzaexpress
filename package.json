@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "A custom-built website for a pizza restaurant using Next.js with authentication.",
-  "homepage":"https://epizzaexpress.in/",
+  "homepage": "https://epizzaexpress.in/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,7 +24,7 @@
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.378.0",
     "mongoose": "^8.4.0",
-    "next": "14.2.3",
+    "next": "^14.2.13",
     "nodemailer": "^6.9.13",
     "react": "^18",
     "react-dom": "^18",
@@ -37,6 +37,7 @@
     "sweetalert": "^2.1.2"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.7.2",
     "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20",
@@ -52,7 +53,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
-   "license": "MIT",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/pankajkhuswaha/epizzaexpress.git"

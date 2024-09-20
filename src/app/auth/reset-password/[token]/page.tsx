@@ -60,7 +60,7 @@ const PasswordResetForm = () => {
   }
 
   return (
-    <div className="my-10 flex items-center justify-center">
+    <div className="my-10 flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8 rounded-xl shadow-lg">
         <div className="text-center">
           <Image

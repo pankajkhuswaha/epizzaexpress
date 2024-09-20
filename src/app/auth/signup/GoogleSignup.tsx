@@ -8,22 +8,27 @@ const GoogleSignup = () => {
   const { mutateAsync: signupUser } = useAuth().sigup;
   const handleGoogleSignup = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider);
+      await signInWithPopup(auth, googleProvider).then(async (result) => {
+        const user = result.user;
+        const signUpInfo = {
+          name: user.displayName || "",
+          email: user.email || "",
+          mobile: user.phoneNumber || "",
+          image: user.photoURL || "",
+          emailVerified: user.emailVerified,
+          password: "null",
+        };
+        await signupUser(signUpInfo);
+      });
 
       // const credential = GoogleAuthProvider.credentialFromResult(result);
       // const token = credential?.accessToken;
       // The signed-in user info.
-      const user = result.user;
-      const signUpInfo = {
-        name: user.displayName || "",
-        email: user.email || "",
-        mobile: user.phoneNumber || "",
-        image: user.photoURL || "",
-        emailVerified: user.emailVerified,
-        password: "null",
-      };
-      await signupUser(signUpInfo);
-    } catch (err) {}
+    } catch (err) {
+      const errorCode = (err as { code: [] }).code;
+      const error = errorCode.splice(5);
+      alert(error);
+    }
   };
   return (
     <>

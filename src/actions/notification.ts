@@ -46,12 +46,9 @@ export const sendNotifications = async (notification: NotificationProp) => {
 
     if (invalidTokens.length > 0) {
       await NotificationToken.deleteMany({ token: { $in: invalidTokens } });
-      console.log(
-        `Deleted ${invalidTokens.length} invalid tokens from the database.`
-      );
     }
+    return invalidTokens;
   } catch (error) {
-    console.error("Error sending message:", error);
     throw new Error("Error sending message");
   }
 };

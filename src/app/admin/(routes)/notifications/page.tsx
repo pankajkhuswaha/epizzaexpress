@@ -1,20 +1,31 @@
 "use client";
 import { sendNotifications } from "@/actions/notification";
-import { useDeleteNotification, useFecthNotifications } from "@/hooks/useNotifiaction";
+import PizzaLoder from "@/components/loader";
+import {
+  useDeleteNotification,
+  useFecthNotifications,
+} from "@/hooks/useNotifiaction";
 import { NotificationProp } from "@/types";
+import { useMutation } from "@tanstack/react-query";
 import { ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import {
-  Edit2Icon,
-  Trash2Icon
-} from "lucide-react";
-import Link from "next/link";
+import { Edit2Icon, Trash2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const NotificationList = () => {
   const { data: notifications } = useFecthNotifications();
   const router = useRouter();
   const { mutate: deleteNotification } = useDeleteNotification();
+  const { mutate: sendNotification, isPending } = useMutation({
+    mutationKey: ["send-notification"],
+    mutationFn: (data: NotificationProp) => sendNotifications(data),
+    onSuccess: (data) => {
+      swal({
+        icon: "success",
+        title: "Notification sent Successfully",
+      });
+    },
+  });
   const columns: ColDef[] = [
     {
       headerName: "Sr. No",
@@ -41,9 +52,16 @@ const NotificationList = () => {
     {
       headerName: "Message",
       field: "body",
-      cellRenderer:({data}:{data:NotificationProp}) =>{
-        return <button onClick={()=>sendNotifications(data)} className="border bg-primary text-gray-900 rounded-xl px-4">Send Notification</button>
-      }
+      cellRenderer: ({ data }: { data: NotificationProp }) => {
+        return (
+          <button
+            onClick={() => sendNotification(data)}
+            className="h-10 rounded-md bg-primary px-4 font-semibold text-black"
+          >
+            Send Notification
+          </button>
+        );
+      },
     },
     {
       headerName: "Image",
@@ -53,7 +71,7 @@ const NotificationList = () => {
           <img
             src={data.image}
             alt="image"
-            className="border rounded size-20"
+            className="size-20 rounded border"
           />
         );
       },
@@ -63,16 +81,16 @@ const NotificationList = () => {
       field: "_id",
       cellRenderer: ({ data }: { data: NotificationProp }) => {
         return (
-          <div className="flex gap-4 items-center py-2">
+          <div className="flex items-center gap-4 py-2">
             <Edit2Icon
               onClick={() =>
                 router.push(`/admin/notifications/add?update=${data._id}`)
               }
-              className="text-blue-600 text-4xl cursor-pointer"
+              className="cursor-pointer text-4xl text-blue-600"
             />
             <Trash2Icon
               onClick={() => deleteNotification(data._id)}
-              className="text-red-600 text-4xl cursor-pointer"
+              className="cursor-pointer text-4xl text-red-600"
             />
           </div>
         );
@@ -81,8 +99,11 @@ const NotificationList = () => {
   ];
   return (
     <>
-      <div className="flex my-2 mb-4 justify-between gap-4 items-center">
-        <h1 className="text-primary text-2xl md:text-4xl">List of All Notifications</h1>
+      {isPending && <PizzaLoder text="Sending notifications to user ..." />}
+      <div className="my-2 mb-4 flex items-center justify-between gap-4">
+        <h1 className="text-2xl text-primary md:text-4xl">
+          List of All Notifications
+        </h1>
         {/* <Link href={"/admin/notifications/add"} className="btn">
           Add New Notification
         </Link> */}

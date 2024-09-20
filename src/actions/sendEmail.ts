@@ -17,7 +17,7 @@ const sendEmail = async (data: SendEmailProps) => {
     },
   });
   let info = await transporter.sendMail({
-    from: "<no-reply@itsybizz@gmail.com>",
+    from: "<no-reply@mspwebcraft@gmail.com>",
     to: data.to,
     subject: data.subject,
     html: data.html,

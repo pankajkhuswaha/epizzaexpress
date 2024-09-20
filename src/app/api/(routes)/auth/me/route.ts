@@ -11,7 +11,7 @@ export const GET = async () => {
     if (!tokenCookie) {
       return NextResponse.json(
         { message: "Unautorized Please Login Again" },
-        { status: 402 }
+        { status: 401 },
       );
     }
     const tokenData = verifyJwtToken(tokenCookie.value) as JwtPayload;

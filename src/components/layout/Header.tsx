@@ -1,5 +1,6 @@
 "use client";
 
+import { useUser } from "@/hooks/useAuth";
 import { Menu, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +12,7 @@ const Header = () => {
   const router = useRouter();
   const atAdmin = pathname.includes("admin");
   const [toggle, setToggle] = useState(false);
+  const { data: user } = useUser();
   if (atAdmin) return;
   const menus = [
     {
@@ -37,12 +39,20 @@ const Header = () => {
 
   return (
     <header className="header-area z-[99999]" style={{ position: "inherit" }}>
+      {user && user.role == "admin" && (
+        <Link
+          href={"/admin"}
+          className="fixed bottom-4 left-2 rounded bg-primary px-4 py-2 text-black"
+        >
+          Go To Dashboard
+        </Link>
+      )}
       <div id="header-sticky" className="menu-area z-[9999] p-0">
-        <div className="container flex justify-between items-center p-2">
+        <div className="container flex items-center justify-between p-2">
           <Link href="/" className="block">
             <Image
               src="/img/logo/logo.png"
-              className="w-[220px] h-[60px] object-contain"
+              className="h-[60px] w-[220px] object-contain"
               width={300}
               height={100}
               alt="logo"
@@ -52,15 +62,15 @@ const Header = () => {
           <div className="w-[80%] lg:hidden">
             <div
               onClick={() => setToggle(!toggle)}
-              className="border-[1px] border-primary p-1 cursor-pointer float-end"
+              className="float-end cursor-pointer border-[1px] border-primary p-1"
             >
               {!toggle && <Menu size={25} color="var(--primary-color)" />}
               {toggle && <XIcon size={25} color="var(--primary-color)" />}
             </div>
           </div>
 
-          <div className="flex justify-between gap-4 items-center">
-            <div className="main-menu hidden lg:flex text-right pr-15">
+          <div className="flex items-center justify-between gap-4">
+            <div className="main-menu pr-15 hidden text-right lg:flex">
               <ul>
                 {menus.map(({ name, path }, i) => (
                   <li key={i} className="has-sub">
@@ -70,18 +80,26 @@ const Header = () => {
               </ul>
             </div>
 
-            <div className="hidden lg:block">
-              <Link href="/auth/signup" className="btn ss-btn">
-                SignUp Now
-              </Link>
-            </div>
+            {!user && (
+              <div className="hidden lg:block">
+                <Link href="/auth/signup" className="btn ss-btn">
+                  SignUp Now
+                </Link>
+              </div>
+            )}
+
+            {user && (
+              <div className="hidden lg:block">
+                <p className="btn ss-btn">✋ Hi {user.name}</p>
+              </div>
+            )}
           </div>
         </div>
 
         <div
-          className={`main-menu overflow-hidden lg:hidden z-50 w-full transition-all duration-300 ${
-            !toggle ? "h-0 " : "h-[300px]"
-          } text-right pr-15 bg-secondary`}
+          className={`main-menu z-50 w-full overflow-hidden transition-all duration-300 lg:hidden ${
+            !toggle ? "h-0" : "h-[350px]"
+          } pr-15 bg-secondary text-right`}
         >
           <ul>
             {menus.map(({ name, path }, i) => (
@@ -94,15 +112,23 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <button
-            onClick={() => {
-              router.push("/auth/signup");
-              setToggle(!toggle);
-            }}
-            className="btn mt-2"
-          >
-            Signup Now
-          </button>
+          {!user && (
+            <button
+              onClick={() => {
+                router.push("/auth/signup");
+                setToggle(!toggle);
+              }}
+              className="btn my-4"
+            >
+              Signup Now
+            </button>
+          )}
+
+          {user && (
+            <div className="my-4">
+              <p className="btn ss-btn">✋ Hi {user.name}</p>
+            </div>
+          )}
         </div>
       </div>
     </header>

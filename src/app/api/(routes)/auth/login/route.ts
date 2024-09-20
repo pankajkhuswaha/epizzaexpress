@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     );
 
     if (isCorrectPassword) {
-      const token = createJwtToken({ id: user._id }, "1h");
+      const token = createJwtToken({ id: user._id }, "5d");
       cookies().set("token", token);
       return NextResponse.json({ message: "Login successfull.", user });
     }

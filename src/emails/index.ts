@@ -12,7 +12,7 @@ const emailWrapper = (content: string) => {
       "
     >
       <img
-        src="${process.env.WEB_URL}/logo.png"
+        src="${process.env.WEB_URL}/img/logo/logo.png"
         alt="${process.env.APPLICATION_NAME}-logo"
         style="width: 100px; margin: 5px auto; display: block"
       />

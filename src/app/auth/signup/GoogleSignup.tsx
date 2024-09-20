@@ -10,8 +10,9 @@ const GoogleSignup = () => {
   const handleGoogleSignup = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential?.accessToken;
+
+      // const credential = GoogleAuthProvider.credentialFromResult(result);
+      // const token = credential?.accessToken;
       // The signed-in user info.
       const user = result.user;
       const signUpInfo = {

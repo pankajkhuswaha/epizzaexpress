@@ -10,7 +10,7 @@ export const resetPasswordMail = (token: string) => {
         </p>
         <p style="margin: 16px auto; text-align: center">
           <a
-            href="${process.env.WEB_URL}/reset-password/${token}"
+            href="${process.env.WEB_URL}/auth/reset-password/${token}"
             style="
               background-color: #007bff;
               border-radius: 4px;

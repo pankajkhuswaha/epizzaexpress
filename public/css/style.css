@@ -7585,7 +7585,7 @@ p.checkout-coupon input[type="text"] {
 .service-detail .prod-tabs .tab-btns {
   position: relative;
   z-index: 1;
-  border-bottom: 1px solid #b8b8b8ddd;
+  border-bottom: 1px solid #b8b8b8;
 }
 
 .service-detail .prod-tabs .tab-btns .tab-btn {
@@ -7657,7 +7657,7 @@ p.checkout-coupon input[type="text"] {
 .service-detail .prod-tabs .tabs-content {
   position: relative;
   padding: 25px 30px 45px;
-  border: 1px solid #b8b8b8ddd;
+  border: 1px solid #b8b8b8;
 }
 
 .service-detail .prod-tabs .tabs-content .tab {

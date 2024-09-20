@@ -7,8 +7,8 @@ import { FcGoogle } from "react-icons/fc";
 const GoogleSignup = () => {
   const { mutateAsync: signupUser } = useAuth().sigup;
   const handleGoogleSignup = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider).then(async (result) => {
+    await signInWithPopup(auth, googleProvider)
+      .then(async (result) => {
         const user = result.user;
         const signUpInfo = {
           name: user.displayName || "",
@@ -19,16 +19,14 @@ const GoogleSignup = () => {
           password: "null",
         };
         await signupUser(signUpInfo);
+      })
+      .catch((err) => {
+        alert(err);
       });
 
-      // const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential?.accessToken;
-      // The signed-in user info.
-    } catch (err) {
-      const errorCode = (err as { code: [] }).code;
-      const error = errorCode.splice(5);
-      alert(error);
-    }
+    // const credential = GoogleAuthProvider.credentialFromResult(result);
+    // const token = credential?.accessToken;
+    // The signed-in user info.
   };
   return (
     <>

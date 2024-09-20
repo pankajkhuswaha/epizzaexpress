@@ -3,9 +3,10 @@
 import PizzaLoder from "@/components/loader";
 import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
+import GoogleLogin from "../GoogleLogin";
 
 const LoginPage = () => {
-  const { mutate: loginUser ,isPending} = useAuth().login;
+  const { mutate: loginUser, isPending } = useAuth().login;
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formdata = new FormData(event.target as HTMLFormElement);
@@ -75,6 +76,7 @@ const LoginPage = () => {
           <span className="text-blue-500">Signup Now</span>
         </Link>
       </form>
+      <GoogleLogin text="Login" />
     </div>
   );
 };

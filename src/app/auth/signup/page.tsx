@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import swal from "sweetalert";
-import GoogleSignup from "./GoogleSignup";
 import Link from "next/link";
 import PizzaLoder from "@/components/loader";
+import GoogleLogin from "../GoogleLogin";
 
 interface SignupDetail {
   name: string;
@@ -71,7 +71,7 @@ const SignUpPage = () => {
     });
   };
 
-  const { mutate: signupUser,isPending } = useMutation({
+  const { mutate: signupUser, isPending } = useMutation({
     mutationKey: ["signup-user"],
     mutationFn: (data: SignupDetail) =>
       fetchApi("POST", "/api/auth/signup", data),
@@ -103,8 +103,8 @@ const SignUpPage = () => {
     <>
       {isPending && <PizzaLoder text="Signing in ..." />}
 
-      <div className="flex items-center justify-center my-10">
-        <div className="bg-gray-900 p-4 md:p-8 rounded-2xl shadow-md w-full max-w-lg mx-2">
+      <div className="my-10 flex items-center justify-center">
+        <div className="mx-2 w-full max-w-lg rounded-2xl bg-gray-900 p-4 shadow-md md:p-8">
           <center className="">
             <h2 className="text-2xl font-bold text-primary">Register on</h2>
             <Image
@@ -129,7 +129,7 @@ const SignUpPage = () => {
                 id="name"
                 name="name"
                 placeholder="John Doe"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -150,7 +150,7 @@ const SignUpPage = () => {
                 id="mobile"
                 name="mobile"
                 placeholder="999XXXXXX75"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                 value={formData.mobile}
                 onChange={handleChange}
                 required
@@ -171,7 +171,7 @@ const SignUpPage = () => {
                 id="email"
                 name="email"
                 placeholder="youremail@gmail.com"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -192,7 +192,7 @@ const SignUpPage = () => {
                 id="password"
                 name="password"
                 placeholder="*********"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                 value={formData.password}
                 onChange={handleChange}
                 required
@@ -208,12 +208,12 @@ const SignUpPage = () => {
               </button>
             </div>
             <div className="flex items-center gap-2">
-              <div className="border-b h-0 overflow-hidden w-full">d</div>
+              <div className="h-0 w-full overflow-hidden border-b">d</div>
               Or
-              <div className="border-b h-0 overflow-hidden w-full">d</div>
+              <div className="h-0 w-full overflow-hidden border-b">d</div>
             </div>
           </form>
-          <GoogleSignup />
+          <GoogleLogin />
           <Link href={"/auth/login"}>
             Already registered ?{" "}
             <span className="text-blue-600">Login Now</span>

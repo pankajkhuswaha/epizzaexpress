@@ -35,7 +35,7 @@ const Providers = ({ children }: ChildrenProps) => {
   }, []);
   return (
     <QueryClientProvider client={queryClient}>
-      <ToastContainer />
+      <ToastContainer position={"top-center"} />
       <ScrollToTop />
 
       <ReactQueryDevtools initialIsOpen={false} />

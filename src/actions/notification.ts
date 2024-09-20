@@ -1,7 +1,7 @@
 "use server";
 import dbconnect from "@/configs/dbconnect";
 import NotificationToken from "@/models/notificationToken.model";
-import { NotificationProp } from "@/types";
+import { IUser, NotificationProp, UserProp } from "@/types";
 import admin from "firebase-admin";
 
 if (!admin.apps.length) {
@@ -61,4 +61,16 @@ export const saveNotificationToken = async (token: string) => {
   }
   await NotificationToken.create({ token });
   return token;
+};
+
+export const verifyGoogleToken = async (token: string) => {
+  const decryptedUser = await admin.auth().verifyIdToken(token);
+  const user: UserProp = {
+    name: decryptedUser.name,
+    email: decryptedUser.email || "",
+    role: "user",
+    mobile: decryptedUser.phone_number || "",
+    image: decryptedUser.picture,
+  };
+  return user;
 };
